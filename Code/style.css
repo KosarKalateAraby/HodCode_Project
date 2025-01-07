@@ -1,0 +1,309 @@
+/*
+Theme Name: Dibaj
+Theme URI: http://example.com
+Author: Your Name
+Author URI: http://example.com
+Description: A custom theme for Dibaj
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: custom-theme, blog, e-commerce
+Text Domain: dibaj
+*/
+
+/* -------- Font --------- */
+@font-face {
+    font-family: 'Shabnam-Light'; /* نام فونت */
+    src: url('./assets/fonts/shabnam/Shabnam-Light.ttf') format('truetype'); /* فرمت فونت */
+    font-weight: normal; /* وزن فونت */
+    font-style: normal; /* استایل فونت */
+}
+
+@font-face {
+    font-family: 'Shabnam-bold'; /* نام فونت */
+    src: url('./assets/fonts/shabnam/Shabnam-Bold.ttf') format('truetype'); /* فرمت فونت */
+    font-weight: normal; /* وزن فونت */
+    font-style: normal; /* استایل فونت */
+}
+@font-face {
+    font-family: 'Shabnam-medium'; /* نام فونت */
+    src: url('./assets/fonts/shabnam/Shabnam-Medium.ttf') format('truetype'); /* فرمت فونت */
+    font-weight: normal; /* وزن فونت */
+    font-style: normal; /* استایل فونت */
+}
+@font-face {
+    font-family: 'Shabnam'; /* نام فونت */
+    src: url('./assets/fonts/shabnam/Shabnam.ttf') format('truetype'); /* فرمت فونت */
+    font-weight: normal; /* وزن فونت */
+    font-style: normal; /* استایل فونت */
+}
+
+:root {
+    --color-blue: #00264D; /* رنگ اصلی */
+  }
+
+  
+/* ------- Style of header.php -------- */
+.navbar-brand img {
+  width: 90px;
+  display: block; /* رفتار پیش‌فرض inline را حذف می‌کند */
+  margin: 0; /* حذف هرگونه فاصله اضافی */
+  margin-top: -5px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center; /* تمام عناصر در یک خط وسط‌چین می‌شوند */
+  justify-content: space-between; /* فاصله مناسب بین لوگو و منو */
+  height: 80px; /* برای تطابق ارتفاع */
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* ارتفاع برابر با منو */
+}
+.navbar-toggler {
+  margin-right: auto; /* جابجایی دکمه منو به چپ */
+}
+.navbar-nav {
+  display: flex;
+  align-items: center; /* هم‌تراز عمودی با لوگو */
+  margin-left: auto; /* فاصله سمت چپ برای منو */
+}
+
+.nav-item {
+  margin: 0 10px; /* فاصله بین آیتم‌ها */
+}
+
+/* استایل اولیه برای لینک‌ها */
+.navbar-nav a {
+    text-decoration: none; /* حذف خط پیش‌فرض */
+    color: black; /* رنگ متن */
+    position: relative; /* برای استفاده از ::after */
+    padding: 5px 0;
+    font-family: Shabnam;
+  }
+  
+  .navbar-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0; /* خط در پایین متن */
+    left: 50%; /* شروع خط از وسط */
+    transform: translateX(-50%); /* جابه‌جایی به سمت چپ نصف عرض */
+    height: 3px; /* ضخامت خط */
+    width: 0; /* عرض پیش‌فرض خط: 0 */
+    background-color: var(--color-blue); /* رنگ خط */
+    transition: width 0.3s ease-in-out; /* انیمیشن آرام باز شدن خط */
+    border-radius: 2px; /* گرد شدن گوشه‌های خط */
+  }
+  
+  /* وقتی هاور یا کلیک می‌شود */
+  .navbar-nav a:hover::after,
+  .navbar-nav a.active::after {
+    width: 50%; /* عرض خط در حالت هاور یا فعال */
+  }
+  
+.header-icons i {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: black;
+}
+
+.header-icons i:hover{
+    color: var(--color-blue);
+}
+
+/* فاصله بین آیتم‌های منو */
+.navbar-nav .nav-item {
+  margin-right: 15px;
+}
+
+/* استایل لینک‌های منو */
+.navbar-nav .nav-link {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+/* هاور برای لینک‌های منو */
+.navbar-nav .nav-link:hover {
+  color: var(--color-blue);
+}
+
+/* طراحی ریسپانسیو */
+
+/* استایل منوی کناری */
+#sidebar-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 1050;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease-in-out;
+}
+
+#sidebar-menu.open {
+  left: 0;
+}
+/* حذف خطوط زیر لینک‌ها */
+#sidebar-menu .list-group-item a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease-in-out;
+}
+
+#sidebar-menu .list-group-item a:hover {
+  color: var(--color-blue);
+}
+
+/* استایل باکس پایین */
+.fixed-bottom {
+  background-color: #fff;
+  z-index: 1050;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.fixed-bottom a {
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.fixed-bottom a i {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.fixed-bottom a:hover {
+  color: var(--color-blue);
+}
+
+/* نمایش فقط در موبایل و تبلت */
+@media (min-width: 992px) {
+  #menu-button,
+  #sidebar-menu,
+  .fixed-bottom {
+      display: none !important;
+  }
+}
+
+@media (max-width:992px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 50%; /* نصف صفحه */
+    background-color: #ddd;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .navbar-collapse.show {
+    transform: translateX(0);
+  }
+
+  .navbar-toggler {
+    z-index: 1100;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 0;
+  }
+}
+
+#sidebar-menu {
+  width: 250px;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+  z-index: 1050; /* بالاتر از سایر عناصر */
+}
+
+#sidebar-menu:not(.d-none) {
+  transform: translateX(0);
+}
+
+/* استایل آیکون‌ها و متن */
+#footer_header {
+  background-color: #fff;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* سایه ملایم */
+}
+
+#footer_header .d-flex {
+  justify-content: space-evenly; /* فاصله مساوی بین آیکون‌ها */
+}
+
+#footer_header .footer-item {
+  flex: 1; /* توزیع مساوی فضا بین آیکون‌ها */
+  font-size: 0.8rem; /* اندازه متن زیر آیکون */
+  color: #555; /* رنگ متن */
+  text-align: center;
+  padding: 5px;
+}
+
+#footer_header .footer-item i {
+  font-size: 1.2rem; /* اندازه آیکون */
+  color: #333; /* رنگ آیکون */
+  display: block; /* قرار دادن آیکون در یک خط مجزا */
+  margin-bottom: 5px; /* فاصله بین آیکون و متن */
+  transition: color 0.3s ease, transform 0.3s ease; /* انیمیشن تغییر رنگ و اندازه */
+}
+#footer_header .footer-item i:hover {
+  color: var(--color-blue); /* تغییر رنگ هنگام هاور */
+  transform: scale(1.2); /* بزرگ‌تر شدن آیکون هنگام هاور */
+}
+
+/* استایل ایکون هنگام فعال بودن */
+#footer_header .footer-item.active i {
+  font-size: 1.8rem; /* بزرگ‌تر شدن آیکون */
+  color: var(--color-blue); /* تغییر رنگ */
+  transition: all 0.3s ease-in-out; /* انیمیشن برای تغییر */
+}
+#footer_header .footer-item.active p {
+  font-weight: bold;
+  color: var(--color-blue);
+}
+
+#footer_header .footer-item p {
+  color: #666; /* رنگ ملایم‌تر */
+  margin: 0; /* حذف فاصله اضافی */
+  font-size: 0.9rem; /* اندازه فونت متن */
+  font-family: Shabnam !important;
+}
+
+/* ریسپانسیو برای موبایل و تبلت */
+@media (max-width: 768px) {
+  #footer_header .footer-item i {
+      font-size: 1.5rem; /*  اندازه آیکون در موبایل */
+  }
+
+  #footer_header .footer-item p {
+      font-size: 1rem; /*  اندازه متن در موبایل */
+  }
+}
+
+@media (max-width: 480px) {
+  #footer_header {
+      padding: 0.5rem 0; /* کاهش فاصله کلی در موبایل‌های کوچک */
+  }
+
+  #footer_header .footer-item i {
+      font-size: 1.2rem; /* آیکون‌ها */
+  }
+
+  #footer_header .footer-item p {
+      font-size: 0.7rem; /* متن */
+  }
+}
+
