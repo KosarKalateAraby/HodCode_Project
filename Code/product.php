@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa"> <!-- تعریف زبان صفحه -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه محصولات</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta charset="UTF-8"> <!-- تنظیم کدگذاری کاراکترها به UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- تنظیم نمایش صحیح در دستگاه‌های موبایل -->
+    <title>صفحه محصولات</title> <!-- عنوان صفحه -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> <!-- لینک به فایل CSS بوت‌استرپ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- لینک به فایل CSS آیکون‌های Font Awesome -->
     <style>
+        /* تعریف استایل دکمه‌های سفارشی */
         .custom-button {
             border-radius: 25px;
             padding: 5px 10px;
@@ -20,6 +21,7 @@
             outline: none;
             box-shadow: none;
         }
+        /* استایل تصویر پارچه‌ها */
         .fabric-img {
             width: 100%;
             height: auto;
@@ -28,6 +30,7 @@
         .fabric-card:hover .fabric-img {
             transform: scale(1.1);
         }
+        /* استایل کارت‌های پارچه */
         .fabric-card {
             margin-bottom: 25px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -38,6 +41,7 @@
             display: flex;
             flex-direction: column;
         }
+        /* استایل دکمه سفارشی */
         .btn-custom {
             background-color: white;
             border: 2px solid #00264D;
@@ -54,6 +58,7 @@
             outline: none;
             box-shadow: none;
         }
+        /* استایل عنوان قیمت */
         .price-title {
             display: flex;
             justify-content: space-between;
@@ -67,6 +72,7 @@
         .price-title p {
             margin-bottom: 0;
         }
+        /* استایل ستاره‌های امتیازدهی */
         .rating .fa-star {
             position: relative;
             font-size: 1rem;
@@ -83,6 +89,7 @@
             color: orange;
             -webkit-text-stroke: 0; /* حذف استروک پس از کلیک */
         }
+        /* استایل‌های خاص برای نمایش در دستگاه‌های موبایل */
         @media (max-width: 768px) {
             .fabric-card {
                 margin-bottom: 40px;
@@ -94,9 +101,10 @@
     </style>
 </head>
 <body>
-    <div class="container my-5">
+    <div class="container my-5"> <!-- ایجاد کانتینر اصلی -->
         <div class="row text-center my-4">
             <div class="col-12">
+                <!-- دکمه‌های فیلتر محصولات -->
                 <button class="btn custom-button">پارچه تابستانی</button>
                 <button class="btn custom-button">پارچه بهاری</button>
                 <button class="btn custom-button">پارچه زمستانی</button>
@@ -149,6 +157,7 @@
         ?>
 
         <script>
+            /* تابع برای امتیازدهی به محصولات */
             function rateProduct(star, rating) {
                 const allStars = star.parentNode.querySelectorAll('.fa-star');
                 allStars.forEach((s, index) => {
@@ -162,8 +171,8 @@
         </script>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- لینک به کتابخانه jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> <!-- لینک به کتابخانه Popper.js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <!-- لینک به فایل JS بوت‌استرپ -->
 </body>
 </html>
