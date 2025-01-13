@@ -1,106 +1,13 @@
-<!DOCTYPE html>
-<html lang="fa"> <!-- تعریف زبان صفحه -->
-<head>
-    <meta charset="UTF-8"> <!-- تنظیم کدگذاری کاراکترها به UTF-8 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- تنظیم نمایش صحیح در دستگاه‌های موبایل -->
-    <title>صفحه محصولات</title> <!-- عنوان صفحه -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> <!-- لینک به فایل CSS بوت‌استرپ -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- لینک به فایل CSS آیکون‌های Font Awesome -->
-    <style>
-        /* تعریف استایل دکمه‌های سفارشی */
-        .custom-button {
-            border-radius: 25px;
-            padding: 5px 10px;
-            margin: 5px;
-            border: 2px solid #00264D;
-            color: black;
-            background-color: white;
-        }
-        .custom-button:focus,
-        .custom-button:active {
-            outline: none;
-            box-shadow: none;
-        }
-        /* استایل تصویر پارچه‌ها */
-        .fabric-img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.3s ease;
-        }
-        .fabric-card:hover .fabric-img {
-            transform: scale(1.1);
-        }
-        /* استایل کارت‌های پارچه */
-        .fabric-card {
-            margin-bottom: 25px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-            padding: 15px;
-            margin: 5px;
-            border: none;
-            display: flex;
-            flex-direction: column;
-        }
-        /* استایل دکمه سفارشی */
-        .btn-custom {
-            background-color: white;
-            border: 2px solid #00264D;
-            border-radius: 15px;
-            color: black;
-            padding: 2px 10px;
-            font-size: 12px;
-            width: auto;
-            margin-right: 0;
-            align-self: flex-end;
-        }
-        .btn-custom:hover {
-            background-color: #f0f0f0;
-            outline: none;
-            box-shadow: none;
-        }
-        /* استایل عنوان قیمت */
-        .price-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-        }
-        .price-title h5 {
-            font-size: 12px;
-            margin-bottom: 0;
-        }
-        .price-title p {
-            margin-bottom: 0;
-        }
-        /* استایل ستاره‌های امتیازدهی */
-        .rating .fa-star {
-            position: relative;
-            font-size: 1rem;
-            color: white;
-            cursor: pointer;
-        }
-        .rating .fa-star:before {
-            content: '\f005';
-            color: transparent;
-            -webkit-text-stroke: 1.5px orange; /* استروک نارنجی دور ستاره */
-        }
-        .rating .fa-star.checked:before {
-            content: '\f005';
-            color: orange;
-            -webkit-text-stroke: 0; /* حذف استروک پس از کلیک */
-        }
-        /* استایل‌های خاص برای نمایش در دستگاه‌های موبایل */
-        @media (max-width: 768px) {
-            .fabric-card {
-                margin-bottom: 40px;
-                margin-left: 10px;
-                margin-right: 10px;
-                display: block;
-            }
-        }
-    </style>
-</head>
-<body>
+<?php
+/*
+Template Name: Product Page
+*/
+?>
+<?php
+// این خط کد از قالب وردپرس استفاده می‌کند
+get_header(); // نمایش هدر سایت
+?>
+
     <div class="container my-5"> <!-- ایجاد کانتینر اصلی -->
         <div class="row text-center my-4">
             <div class="col-12">
@@ -115,18 +22,18 @@
 
         <?php
         $fabrics = [
-            ["img" => get_template_directory_uri() . "/assets/img/p1.jpg", "price" => "210,000 تومان", "name" => "پارچه ابریشمی", "rating" => 4],
-            ["img" => get_template_directory_uri() . "/assets/img/p2.jpg", "price" => "210,000 تومان", "name" => "پارچه پنبه‌ای", "rating" => 5],
-            ["img" => get_template_directory_uri() . "/assets/img/p3.jpg", "price" => "210,000 تومان", "name" => "پارچه کتان", "rating" => 3],
-            ["img" => get_template_directory_uri() . "/assets/img/p4.jpg", "price" => "210,000 تومان", "name" => "پارچه پشمی", "rating" => 4],
-            ["img" => get_template_directory_uri() . "/assets/img/p5.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 1", "rating" => 4],
-            ["img" => get_template_directory_uri() . "/assets/img/p6.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 2", "rating" => 4],
-            ["img" => get_template_directory_uri() . "/assets/img/p7.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 3", "rating" => 4],
-            ["img" => get_template_directory_uri() . "/assets/img/fabric8.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 4", "rating" => 4],
-            ["img" => get_template_directory_uri() . "/assets/img/fabric9.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 5", "rating" => 4],
-            ["img" => get_template_directory_uri() . "/assets/img/fabric10.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 6", "rating" => 4],
-            ["img" => get_template_directory_uri() . "/assets/img/fabric11.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 7", "rating" => 4],
-            ["img" => get_template_directory_uri() . "/assets/img/fabric12.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 8", "rating" => 4],
+            ["img" => get_template_directory_uri() . "/assets/image/p1.jpg", "price" => "210,000 تومان", "name" => "پارچه ابریشمی", "rating" => 4],
+            ["img" => get_template_directory_uri() . "/assets/image/p2.jpg", "price" => "210,000 تومان", "name" => "پارچه پنبه‌ای", "rating" => 5],
+            ["img" => get_template_directory_uri() . "/assets/image/p3.jpg", "price" => "210,000 تومان", "name" => "پارچه کتان", "rating" => 3],
+            ["img" => get_template_directory_uri() . "/assets/image/p4.jpg", "price" => "210,000 تومان", "name" => "پارچه پشمی", "rating" => 4],
+            ["img" => get_template_directory_uri() . "/assets/image/p5.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 1", "rating" => 4],
+            ["img" => get_template_directory_uri() . "/assets/image/p6.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 2", "rating" => 4],
+            ["img" => get_template_directory_uri() . "/assets/image/p7.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 3", "rating" => 4],
+            ["img" => get_template_directory_uri() . "/assets/image/p1.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 4", "rating" => 4],
+            ["img" => get_template_directory_uri() . "/assets/image/p2.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 5", "rating" => 4],
+            ["img" => get_template_directory_uri() . "/assets/image/p3.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 6", "rating" => 4],
+            ["img" => get_template_directory_uri() . "/assets/image/p3.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 7", "rating" => 4],
+            ["img" => get_template_directory_uri() . "/assets/image/p3.jpg", "price" => "210,000 تومان", "name" => "پارچه جدید 8", "rating" => 4],
         ];
 
         echo '<div class="row">';
@@ -170,9 +77,3 @@
             }
         </script>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- لینک به کتابخانه jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> <!-- لینک به کتابخانه Popper.js -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <!-- لینک به فایل JS بوت‌استرپ -->
-</body>
-</html>

@@ -15,16 +15,35 @@ navLinks.forEach(link => {
 });
 
 // ریسپانسیو
-document.getElementById("menu-button").addEventListener("click", function () {
-  const sidebar = document.getElementById("sidebar-menu");
-  sidebar.classList.toggle("open");
+// انتخاب عناصر
+const menuButton = document.getElementById("menu-button");
+const sidebar = document.getElementById("navbarNav");
+const overlay = document.getElementById("overlay");
+const closeMenuButton = document.getElementById("close-menu");
+
+// باز کردن منو
+menuButton.addEventListener("click", function () {
+    sidebar.classList.add("open");
+    overlay.classList.add("active"); // فعال کردن تاریک‌کننده
 });
+
+// بستن منو با دکمه خروج
+closeMenuButton.addEventListener("click", function () {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("active"); // غیرفعال کردن تاریک‌کننده
+});
+
+// بستن منو با کلیک روی لایه تاریک
+overlay.addEventListener("click", function () {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("active");
+});
+
 
 //استایل فعال ایکون های پایین صفحه در هنگام فعال بودن صفحه
 document.addEventListener("DOMContentLoaded", function () {
   const footerItems = document.querySelectorAll(".footer-item");
-  const currentPath = window.location.pathname; // گرفتن آدرس فعلی
-
+  const currentPath = window.location.pathname.replace(/\/$/, ''); // حذف اسلش انتهایی
   // حذف کلاس active از همه لینک‌ها
   footerItems.forEach((item) => {
       item.classList.remove("active");

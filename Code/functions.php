@@ -1,15 +1,31 @@
-
 <?php
-
-function enqueue_theme_scripts() {
-    // بارگذاری فایل CSS
-    wp_enqueue_style('theme-style', get_template_directory_uri() . '/style.css');
-
-    // بارگذاری فایل JavaScript
-    wp_enqueue_script('theme-script', get_template_directory_uri() . '/script.js', [], false, true);
+function enqueue_custom_styles() {
+    // Bootstrap CSS
+    wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/assets/css/bootstrap/dist/css/bootstrap.min.css', array(), '5.0.0', 'all');
+    
+    // Bootstrap Icons
+    wp_enqueue_style('bootstrap-icons', get_template_directory_uri() . '/assets/css/bootstrap-icons/font/bootstrap-icons.css', array(), '1.0.0', 'all');
+    
+    // Font Awesome
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', array(), '5.15.4', 'all');
+    
+    // Custom Stylesheet
+    wp_enqueue_style('custom-style', get_template_directory_uri() . '/style.css', array(), '1.0.0', 'all');
 }
-add_action('wp_enqueue_scripts', 'enqueue_theme_scripts');
- 
+add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
+
+function enqueue_custom_scripts() {
+    // Popper.js
+    wp_enqueue_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js', array(), '1.16.0', true);
+
+    // Bootstrap Bundle JS
+    wp_enqueue_script('bootstrap-bundle', get_template_directory_uri() . '/assets/css/bootstrap/dist/js/bootstrap.bundle.min.js', array('jquery'), '5.0.0', true);
+
+    // Custom JS
+    wp_enqueue_script('custom-js', get_template_directory_uri() . '/custom.js', array('jquery'), '1.0.0', true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
 
 function dibaj_theme_setup() {
     // ثبت مکان منو
