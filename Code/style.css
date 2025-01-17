@@ -40,8 +40,8 @@ Text Domain: dibaj
 
 :root {
   --color-blue: #00264D; /* رنگ اصلی */
+  --color-mustard: #FFBF00;
 }
-
 
 /* ------- Style of header.php -------- */
 body{
@@ -75,6 +75,7 @@ display: flex;
 align-items: center; /* هم‌تراز عمودی با لوگو */
 margin-left: auto; /* فاصله سمت چپ برای منو */
 margin-right: 5px !important;
+padding-top: 0 !important;
 }
 
 .nav-item {
@@ -376,6 +377,181 @@ display: block;
 
 .carousel-indicators .active {
   background-color: #fff; /* رنگ دایره فعال */
+}
+
+/* ------------- section Cards ----------- */
+.bg-primary{
+  background-color: var(--color-blue) !important;
+}
+.bg-warning{
+  background-color: var(--color-mustard) !important;
+}
+/* استایل کارت‌ها */
+.card-custom {
+  height: 150px; /* ارتفاع ثابت */
+  margin: 10px; /* فاصله بین کارت‌ها */
+  border-radius: 12px; /* گوشه‌های کارت */
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-custom:hover {
+  transform: scale(1.05); /* افکت کوچک بزرگ شدن هنگام هاور */
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* اندازه متن در کارت‌ها */
+.custom-text {
+  font-size: 1.2rem; /* اندازه متن پیش‌فرض */
+  text-align: center; /* وسط‌چین کردن متن */
+  line-height: 1.5; /* خوانایی بهتر */
+}
+
+/* ریسپانسیو برای تبلت و موبایل */
+@media (max-width: 768px) {
+  .card-custom {
+      height: 120px; /* ارتفاع کارت‌ها در تبلت */
+  }
+  .custom-text {
+      font-size: 0.9rem; /* کوچک‌تر شدن متن در تبلت */
+  }
+}
+
+@media (max-width: 576px) {
+  .card-custom {
+      height: 100px; /* ارتفاع کارت‌ها در موبایل */
+  }
+  .custom-text {
+      font-size: 0.8rem; /* کوچک‌تر شدن متن در موبایل */
+      white-space: pre-line; /* شکستن متن به خطوط جدید */
+  }
+}
+
+/* -----------section products--------- */
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+.product-card:hover {
+  transform: scale(1.05);
+}
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.product-name {
+  font-size: 1rem;
+  color: black;
+}
+.product-price {
+  color: var(--color-mustard);
+  font-size: 1rem;
+}
+.container h2 {
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+@media (max-width: 576px) { 
+  .product-name, .product-price { font-size: 0.6rem; } 
+}
+@media (max-width: 768px) {
+  .product-name, .product-price { font-size: 0.6rem; } 
+}
+
+/* ------section article--------- */
+/* کارت وبلاگ */
+.blog-card {
+  height: 200px; /* ارتفاع ثابت */
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.25); /* سایه داخلی */
+  border-radius: 10px; /* گوشه‌های گرد */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* اجزای کارت به صورت عمودی */
+  position: relative; /* برای موقعیت‌دهی دکمه */
+}
+
+/* تصویر کارت */
+.blog-card .image-container {
+  flex: 1;
+  background-size: cover; /* حالت کاور برای تصویر */
+  background-position: center; /* مرکز تصویر */
+  background-repeat: no-repeat;
+}
+
+/* متن و دکمه */
+.blog-card .p-3 {
+  flex: none;
+}
+
+.blog-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.read-more-btn {
+  background-color: var(--color-mustard);
+  color: #000;
+  font-family: Shabnam-medium;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  position: absolute; /* موقعیت‌دهی دکمه */
+  bottom: 10px; /* فاصله از پایین کارت */
+  left: 10px; /* فاصله از چپ کارت */
+}
+
+.read-more-btn:hover {
+  background-color: #FFD65A;
+}
+
+/* ریسپانسیو */
+@media (max-width: 991px) { /* حالت تبلت */
+  .blog-card {
+    height: auto; /* ارتفاع بر اساس محتوا */
+  }
+
+  .blog-card .image-container {
+    height: 150px; /* ارتفاع مشخص برای تصویر */
+  }
+
+  .blog-title {
+    font-size: 1rem; /* کاهش اندازه عنوان */
+  }
+  .text-muted{
+    font-size: 0.8rem;
+  }
+  .read-more-btn {
+    font-size: 0.8rem; /* دکمه کوچک‌تر */
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+@media (max-width: 576px) { /* حالت موبایل */
+  .blog-card {
+    height: auto; /* ارتفاع بر اساس محتوا */
+  }
+
+  .blog-card .image-container {
+    height: 120px; /* ارتفاع محدودتر */
+  }
+
+  .blog-title {
+    font-size: 0.8rem; /* عنوان کوچک‌تر */
+  }
+  .text-muted{
+    font-size: 0.6rem;
+  }
+  .read-more-btn {
+    font-size: 0.5rem; /* دکمه کوچک‌تر */
+    padding: 0.2rem 0.5rem;
+  }
 }
 
 
