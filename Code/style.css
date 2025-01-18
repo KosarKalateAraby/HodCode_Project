@@ -1,5 +1,5 @@
 /*
-Theme Name: Dibaj
+Theme Name: example
 Theme URI: http://example.com
 Author: Your Name
 Author URI: http://example.com
@@ -557,6 +557,7 @@ display: block;
 
 /* --------- style of product.php ------------- */
 
+<<<<<<< HEAD
 /* تعریف استایل دکمه‌های سفارشی */
 .custom-button {
   border-radius: 25px;
@@ -656,6 +657,8 @@ display: block;
 
 /*-------- style of product.php -------*/
 
+=======
+>>>>>>> 4b8cddae3f18e8eb92e5f1852379cc94f4e63184
 .custom-button {
   border-radius: 25px;
   /* گرد کردن گوشه‌های دکمه */
@@ -684,7 +687,7 @@ display: block;
 }
 
 .custom-button:hover {
-  background-color: #00264D;
+  background-color: var(--color-blue);
   /* رنگ پس زمینه در حالت Hover */
   color: white;
   /* رنگ متن در حالت Hover */
@@ -721,8 +724,6 @@ display: block;
 .card-img-top {
   height: auto;
   /* ارتفاع خودکار */
-  max-height: 200px;
-  /* حداکثر ارتفاع */
   object-fit: cover;
   /* اندازه دادن به تصویر */
   border-radius: 10px;
@@ -732,7 +733,7 @@ display: block;
 .fabric-img {
   width: 100%;
   /* عرض */
-  height: 200px;
+  height: auto;
   /* ارتفاع */
   object-fit: cover;
   /* اندازه دادن به تصاویر */
@@ -798,7 +799,7 @@ display: block;
 .btn-custom {
   background-color: white;
   /* رنگ پس زمینه */
-  border: 2px solid #00264D;
+  border: 2px solid var(--color-blue);
   /* حاشیه آبی تیره */
   border-radius: 20px;
   /* گرد کردن گوشه‌ها */
@@ -806,14 +807,20 @@ display: block;
   /* رنگ متن */
   font-size: 15px;
   /* افزایش اندازه فونت */
-  width: auto;
+  width: 100%;
   /* عرض متغیر */
   margin-right: 0;
   /* فاصله راست */
   align-self: flex-end;
   /* تنظیم مکان دکمه */
 }
-
+.btn-custom:hover{
+  border: 2px solid var(--color-blue);
+  background-color: var(--color-blue);
+  /* رنگ پس زمینه در حالت Hover */
+  color: white;
+  /* رنگ متن در حالت Hover */
+}
 .btn-custom:focus,
 .btn-custom:active {
   outline: none;
@@ -821,10 +828,9 @@ display: block;
   box-shadow: none;
   /* حذف سایه پیش‌فرض */
 }
-
 @media (max-width: 768px) {
   .btn-custom {
-      width: auto;
+      width: 100%;
       /* عرض 100% برای حالت کمتر از 1024 پیکسل */
       text-align: center;
       /* مرکز بندی متن */
@@ -832,6 +838,7 @@ display: block;
       /* افزایش اندازه فونت */
   }
 }
+<<<<<<< HEAD
 
 /* -----------style of blog-page.php -------*/
 .section-title {
@@ -925,3 +932,66 @@ h4.text-primary {
 .list-group-item:hover {
   background-color: #f8f9fa;
 }
+=======
+    .flex-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .card-title, .card-text {
+        margin: 5px;
+    }
+
+/* --------- style of footer.php ------------- */
+.bg-custom-dark {
+  background-color: #00264D; /* رنگ زمینه مشابه تصویر */
+}
+
+footer h3 {
+  margin-bottom: 0.5rem; /* فاصله زیر عنوان */
+  margin-top: 0; /* حذف فاصله بالای عنوان */
+  font-size: 1.2rem; /* اندازه بزرگ‌تر عنوان */
+  color: #FFFFFF; /* رنگ عنوان */
+}
+
+footer p {
+  margin-bottom: 0.2rem; /* فاصله زیر پاراگراف */
+  font-size: 0.9rem; /* اندازه متن */
+  color: #FFFFFF; /* رنگ متن */
+}
+
+footer a {
+  text-decoration: none; /* بدون زیرخط */
+  color: white; /* رنگ لینک */
+}
+
+footer a:hover {
+  text-decoration: underline; /* زیرخط برای hover */
+}
+
+.d-flex.align-items-center {
+  display: flex; /* تراز کردن در یک خط */
+  justify-content: space-between; /* فاصله میان شماره تماس و آیکون‌ها */
+  align-items: center; /* تراز عمودی */
+}
+
+.d-flex.align-items-center p {
+  margin: 0; /* حذف فاصله اضافی پایین شماره تماس */
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem; /* فاصله مناسب بین شماره تماس و ایمیل */
+}
+
+.col-md-4 div p {
+  text-align: right; /* هم‌راستا کردن تمامی متن‌ها به راست */
+}
+@media(max-width:991px){
+  /* footer{
+      margin-bottom: 50px;
+  } */
+}
+
+
+
+>>>>>>> 4b8cddae3f18e8eb92e5f1852379cc94f4e63184

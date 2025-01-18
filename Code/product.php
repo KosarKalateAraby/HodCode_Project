@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="fa">
+<?php
+/*
+Template Name: Product page
+*/
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه محصولات</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-
-<body>
-    <div class="container my-5">
+<?php
+// فراخوانی هدر قالب
+get_header();
+?>
+<div class="container my-5">
         <!-- ردیف بالای دکمه‌های دسته‌بندی پارچه -->
         <div class="row text-center my-4">
             <div class="col-12">
@@ -44,13 +42,6 @@
                 echo '<img src="' . htmlspecialchars($fabric['img']) . '" class="card-img-top fabric-img" alt="Fabric">';
                 echo '<div class="card-body d-flex flex-column">';
                 echo '<div class="flex-row">';
-                echo '<p class="card-text">';
-                if (isset($fabric['price'])) {
-                    echo htmlspecialchars($fabric['price']);
-                } else {
-                    echo 'قیمت موجود نیست';
-                }
-                echo '</p>';
                 echo '<h5 class="card-title">';
                 if (isset($fabric['name'])) {
                     echo htmlspecialchars($fabric['name']);
@@ -58,6 +49,13 @@
                     echo 'نام موجود نیست';
                 }
                 echo '</h5>';
+                echo '<p class="card-text">';
+                if (isset($fabric['price'])) {
+                    echo htmlspecialchars($fabric['price']);
+                } else {
+                    echo 'قیمت موجود نیست';
+                }
+                echo '</p>';
                 echo '</div>';
                 echo '<div class="rating mb-3">';
                 echo '</div>';
@@ -92,6 +90,8 @@
             </script>
         </div>
     </div>
-</body>
 
-</html>
+<?php
+// فراخوانی فوتر قالب
+get_footer();
+?>
