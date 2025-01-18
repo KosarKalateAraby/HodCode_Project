@@ -652,3 +652,187 @@ display: block;
       display: block;
   }
 }
+
+
+/*--------product style-------*/
+body {
+  font-family: 'Shabnam', sans-serif;
+  /* تنظیم فونت برنامه */
+}
+
+.custom-button {
+  border-radius: 25px;
+  /* گرد کردن گوشه‌های دکمه */
+  padding: 10px 15px;
+  /* فاصله داخلی دکمه */
+  margin: 5px;
+  /* فاصله خارجی دکمه */
+  border: 2px solid #00264D;
+  /* حاشیه آبی تیره */
+  color: #00264D;
+  /* رنگ متن */
+  background-color: white;
+  /* رنگ پس زمینه */
+  font-weight: bold;
+  /* ضخیم کردن متن */
+  transition: background-color 0.3s, color 0.3s;
+  /* انتقال پس زمینه و رنگ متن */
+}
+
+.custom-button:focus,
+.custom-button:active {
+  outline: none;
+  /* حذف حاشیه پیش‌فرض */
+  box-shadow: none;
+  /* حذف سایه پیش‌فرض */
+}
+
+.custom-button:hover {
+  background-color: #00264D;
+  /* رنگ پس زمینه در حالت Hover */
+  color: white;
+  /* رنگ متن در حالت Hover */
+}
+
+.flex-row {
+  display: flex;
+  /* تنظیم نمایش به صورت Flex */
+  justify-content: space-between;
+  /* فضا بین آیتم‌ها */
+  align-items: center;
+  /* تنظیم آیتم‌ها در مرکز */
+}
+
+.fabric-card {
+  margin-bottom: 20px;
+  /* فاصله پایین کاردها */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* سایه کاردها */
+  border-radius: 15px;
+  /* گرد کردن گوشه‌های کاردها */
+  background-color: white;
+  /* رنگ پس زمینه کاردها */
+  display: flex;
+  /* تنظیم نمایش به صورت Flex */
+  flex-direction: column;
+  /* تنظیم جهت فلیکس به صورت ستون */
+  justify-content: space-between;
+  /* فضا بین آیتم‌ها */
+  height: auto;
+  /* ارتفاع خودکار */
+}
+
+.card-img-top {
+  height: auto;
+  /* ارتفاع خودکار */
+  max-height: 200px;
+  /* حداکثر ارتفاع */
+  object-fit: cover;
+  /* اندازه دادن به تصویر */
+  border-radius: 10px;
+  /* گرد کردن گوشه‌های تصاویر */
+}
+
+.fabric-img {
+  width: 100%;
+  /* عرض */
+  height: 200px;
+  /* ارتفاع */
+  object-fit: cover;
+  /* اندازه دادن به تصاویر */
+  transition: transform 0.3s ease-in-out;
+  /* انتقال آرام تغییر اندازه */
+  padding: 15px;
+  /* فاصله داخلی */
+  border-radius: 20px;
+  /* گرد کردن گوشه‌ها */
+}
+
+.fabric-card:hover .fabric-img {
+  transform: scale(1.04);
+  /* بزرگنمایی تصاویر در حالت Hover */
+}
+
+.rating .fa-star {
+  font-size: 1rem;
+  /* اندازه فونت */
+  color: transparent;
+  /* بی رنگ */
+  -webkit-text-stroke: 1px #FFD700;
+  /* رنگ دور ستاره‌ها */
+}
+
+.rating .fa-star.filled {
+  color: #FFD700;
+  /* رنگ پر شده ستاره ها */
+  -webkit-text-stroke: 0px;
+  /* حذف رنگ دور ستاره‌ها */
+}
+
+.width-custom {
+  width: 100%;
+  /* عرض سفارشی */
+}
+
+@media (min-width: 768px) {
+  .width-custom {
+      width: 33.3333%;
+      /* عرض کمتر در صفحات بزرگتر */
+  }
+}
+
+@media (min-width: 1024px) {
+  .width-custom {
+      width: 25%;
+      /* عرض کوچکتر در صفحات بزرگتر */
+  }
+}
+
+.card-title {
+  font-size: 1rem;
+  /* سایز کوچک‌تر برای عنوان */
+}
+
+.card-text {
+  font-size: 0.875rem;
+  /* سایز کوچک‌تر برای قیمت */
+}
+
+/* شخصی‌سازی دکمه محصول */
+.btn-custom {
+  background-color: white;
+  /* رنگ پس زمینه */
+  border: 2px solid #00264D;
+  /* حاشیه آبی تیره */
+  border-radius: 20px;
+  /* گرد کردن گوشه‌ها */
+  color: black;
+  /* رنگ متن */
+  font-size: 15px;
+  /* افزایش اندازه فونت */
+  width: auto;
+  /* عرض متغیر */
+  margin-right: 0;
+  /* فاصله راست */
+  align-self: flex-end;
+  /* تنظیم مکان دکمه */
+}
+
+.btn-custom:focus,
+.btn-custom:active {
+  outline: none;
+  /* حذف حاشیه پیش‌فرض */
+  box-shadow: none;
+  /* حذف سایه پیش‌فرض */
+}
+
+@media (max-width: 768px) {
+  .btn-custom {
+      width: auto;
+      /* عرض 100% برای حالت کمتر از 1024 پیکسل */
+      text-align: center;
+      /* مرکز بندی متن */
+      font-size: 15px;
+      /* افزایش اندازه فونت */
+  }
+}
