@@ -30,6 +30,22 @@ function enqueue_custom_scripts() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 
+// اعلام سازگاری قالب با WooCommerce
+function theme_support_woocommerce() {
+    if (class_exists('WooCommerce')) {
+        add_theme_support('woocommerce');
+    }
+}
+add_action('after_setup_theme', 'theme_support_woocommerce');
+
+add_action('init', function() {
+    if (class_exists('WooCommerce')) {
+        error_log('WooCommerce is active and working!');
+    } else {
+        error_log('WooCommerce is not active.');
+    }
+});
+
 
 function dibaj_theme_setup() {
     // ثبت مکان منو
