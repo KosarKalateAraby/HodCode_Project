@@ -47,6 +47,17 @@ do_action( 'woocommerce_shop_loop_header' );
 
 ?>
 <div class="container my-5">
+
+<form id="product-search-form">
+    <input type="text" id="search-input" placeholder="جستجو در محصولات..." />
+    <button type="submit" id="search-button">جستجو</button>
+</form>
+
+<div id="search-results"></div>
+
+
+
+
     <!-- دسته‌بندی‌ها -->
     <div class="row text-center my-4">
         <div class="col-12">
@@ -79,8 +90,8 @@ do_action( 'woocommerce_shop_loop_header' );
                     <div class="card-body d-flex flex-column">
                         <!-- نام محصول و قیمت -->
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h5 class="card-title mb-0"><?php the_title(); ?></h5>
-                            <p class="card-text mb-0 text-primary fw-bold">
+                            <h3 class="card-title fw-bold mb-0 fs-5"><?php the_title(); ?></h3>
+                            <p class="card-text mb-0  fs-6">
                                 <?php echo $product->get_price_html(); ?>
                             </p>
                         </div>
@@ -110,7 +121,7 @@ do_action( 'woocommerce_shop_loop_header' );
     <?php endif; ?>
 </div>
 
-            <script>
+<script>
                 document.addEventListener("DOMContentLoaded", function() {
                     let fabrics = <?php echo (json_encode($fabrics)); ?>;
                     fabrics.forEach((fabric, index) => {
@@ -131,7 +142,9 @@ do_action( 'woocommerce_shop_loop_header' );
                         }
                     });
                 });
-            </script>
+
+                
+</script>
 <?php
 
 
