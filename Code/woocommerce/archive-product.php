@@ -46,18 +46,26 @@ do_action( 'woocommerce_before_main_content' );
 do_action( 'woocommerce_shop_loop_header' );
 
 ?>
-<div class="container my-5">
 
-<form id="product-search-form">
-    <input type="text" id="search-input" placeholder="جستجو در محصولات..." />
-    <button type="submit" id="search-button">جستجو</button>
-</form>
+<!-- فرم جستجو -->
+<!-- <form id="product-search-form" class="d-flex bg-white rounded-pill shadow-sm p-2 mb-5" style="max-width: 600px; margin: auto;">
+        <input 
+            type="text" 
+            id="search-input" 
+            class="form-control rounded-pill border-0 me-2" 
+            placeholder="جستجو در محصولات..."
+            style="flex: 1;">
+        <button 
+            type="submit" 
+            id="search-button" 
+            class="btn btn-primary text-white rounded-pill px-4">
+            جستجو
+        </button>
+    </form> -->
 
-<div id="search-results"></div>
 
-
-
-
+<div class="container">
+    
     <!-- دسته‌بندی‌ها -->
     <div class="row text-center my-4">
         <div class="col-12">
@@ -70,57 +78,57 @@ do_action( 'woocommerce_shop_loop_header' );
     </div>
 
     <!-- نمایش محصولات -->
-<div class="row">
-    <?php if ( have_posts() ) : ?>
-        <?php while ( have_posts() ) : the_post(); ?>
-            <?php
-            // دریافت اطلاعات محصول
-            global $product;
-            if ( empty( $product ) || ! $product->is_visible() ) {
-                continue;
-            }
-            ?>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card h-100 fabric-card">
-                    <!-- تصویر محصول -->
-                    <a href="<?php the_permalink(); ?>" class="card-img-top">
-                        <?php echo $product->get_image(); ?>
-                    </a>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <!-- نام محصول و قیمت -->
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h3 class="card-title fw-bold mb-0 fs-5"><?php the_title(); ?></h3>
-                            <p class="card-text mb-0  fs-6">
-                                <?php echo $product->get_price_html(); ?>
-                            </p>
-                        </div>
+    <div class="row">
+        <?php if ( have_posts() ) : ?>
+            <?php while ( have_posts() ) : the_post(); ?>
+                <?php
+                // دریافت اطلاعات محصول
+                global $product;
+                if ( empty( $product ) || ! $product->is_visible() ) {
+                    continue;
+                }
+                ?>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100 fabric-card">
+                        <!-- تصویر محصول -->
+                        <a href="<?php the_permalink(); ?>" class="card-img-top">
+                            <?php echo $product->get_image(); ?>
+                        </a>
                         
-                        <!-- امتیاز محصول -->
-                        <div class="rating mb-3">
-                            <?php
-                            $rating = $product->get_average_rating();
-                            for ( $i = 0; $i < 5; $i++ ) {
-                                if ( $i < $rating ) {
-                                    echo '<span class="fa fa-star text-warning"></span>';
-                                } else {
-                                    echo '<span class="fa fa-star text-secondary"></span>';
+                        <div class="card-body d-flex flex-column">
+                            <!-- نام محصول و قیمت -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h3 class="card-title fw-bold mb-0 fs-5"><?php the_title(); ?></h3>
+                                <p class="card-text mb-0  fs-6">
+                                    <?php echo $product->get_price_html(); ?>
+                                </p>
+                            </div>
+                            
+                            <!-- امتیاز محصول -->
+                            <div class="rating mb-3">
+                                <?php
+                                $rating = $product->get_average_rating();
+                                for ( $i = 0; $i < 5; $i++ ) {
+                                    if ( $i < $rating ) {
+                                        echo '<span class="fa fa-star text-warning"></span>';
+                                    } else {
+                                        echo '<span class="fa fa-star text-secondary"></span>';
+                                    }
                                 }
-                            }
-                            ?>
+                                ?>
+                            </div>
+                            
+                            <!-- دکمه مشاهده محصول -->
+                            <a href="<?php the_permalink(); ?>" class="btn btn-custom mt-auto">مشاهده محصول</a>
                         </div>
-                        
-                        <!-- دکمه مشاهده محصول -->
-                        <a href="<?php the_permalink(); ?>" class="btn btn-custom mt-auto">مشاهده محصول</a>
                     </div>
                 </div>
-            </div>
-        <?php endwhile; ?>
-    <?php else : ?>
-        <p class="text-center">محصولی برای نمایش وجود ندارد.</p>
-    <?php endif; ?>
+            <?php endwhile; ?>
+        <?php else : ?>
+            <p class="text-center">محصولی برای نمایش وجود ندارد.</p>
+        <?php endif; ?>
+    </div>
 </div>
-
 <script>
                 document.addEventListener("DOMContentLoaded", function() {
                     let fabrics = <?php echo (json_encode($fabrics)); ?>;
