@@ -269,7 +269,7 @@ body {
   .navbar-nav {
     flex-direction: column;
     align-items: flex-start;
-    padding: 1rem;
+    padding-top: 40px !important;
   }
 
   .nav-link {
@@ -448,7 +448,7 @@ body {
 }
 
 /* ----------- section slider ------------ */
-.carousel-inner img {
+.slider-img{
   height: auto;
   max-height: 500px;
   object-fit: cover;
@@ -548,45 +548,6 @@ body {
   transform: scale(1.05);
 }
 
-.product-card img {
-  width: 100%;
-  height: auto;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-}
-
-.product-name {
-  font-size: 1rem;
-  color: black;
-}
-
-.product-price {
-  color: var(--color-mustard);
-  font-size: 1rem;
-}
-
-.container h2 {
-  margin-bottom: 40px;
-  font-weight: bold;
-}
-
-@media (max-width: 576px) {
-
-  .product-name,
-  .product-price {
-    font-size: 0.6rem;
-  }
-}
-
-@media (max-width: 768px) {
-
-  .product-name,
-  .product-price {
-    font-size: 0.6rem;
-  }
-}
-
 /* ------section article--------- */
 /* کارت وبلاگ */
 .blog-card {
@@ -594,7 +555,7 @@ body {
   /* ارتفاع ثابت */
   box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.25);
   /* سایه داخلی */
-  border-radius: 10px;
+  border-radius: 20px;
   /* گوشه‌های گرد */
   overflow: hidden;
   display: flex;
@@ -1838,66 +1799,6 @@ h4.text-primary {
     width: auto; /* عرض خودکار */
     max-width: 100%; /* حداکثر عرض */
   }
-}
-
-/* --------- style of index.php ------------- */
-.blog-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  overflow: hidden;
-  margin-bottom: 15px;
-  height: auto;
-}
-.blog-card img {
-  flex: 0 0 250px;
-  width: 150px;
-  height: 150px; /* اندازه فیکس شده */
-  object-fit: cover;
-}
-.text-weblog {
-  flex: 1;
-  text-align: right;
-  padding-left: 15px;
-}
-.read-more-btn {
-  background-color: #ffd700;
-  color: #000;
-  padding: 5px 10px;
-  border-radius: 3px;
-  text-decoration: none;
-}
-@media (max-width: 770px) {
-  .blog-card {
-    flex-direction: row;
-    align-items: center; /* حفظ حالت افقی */
-    height: auto; /* تنظیم ارتفاع خودکار */
-  }
-  .blog-card img {
-    flex: 0 0 150px;
-    width: 100px; /* تغییر اندازه برای نمایش بهتر */
-    height: 100px; /* تغییر اندازه برای نمایش بهتر */
-  }
-  .text-weblog {
-    padding-left: 10px;
-  }
-  .read-more-btn {
-    margin-left: 10px;
-  }
-}
-@media (max-width: 425px) {
-  .blog-card img {
-    flex: 0 0 100px;
-   }
-}
-
-@media (max-width: 375px) {
-  .blog-card img {
-    flex: 0 0 70px;
-    width: 90px;
-   }
 }
 
 /* --------------style of single-product.php--------------------- */

@@ -44,99 +44,106 @@ get_template_part('slider');
     <h2 class="text-center mb-4">محصولات ویژه!</h2>
     <div class="row g-4">
         <?php
-        // داده‌های محصولات
-        $products = [
-            [
-                "name" => "پارچه ابریشمی",
-                "price" => 210000,
-                "image" => "assets/image/p1.jpg"
+        $args = [
+            'post_type' => 'product',
+            'tax_query' => [
+                [
+                    'taxonomy' => 'product_visibility',
+                    'field'    => 'name',
+                    'terms'    => 'featured',
+                ],
             ],
-            [
-                "name" => "پارچه ساتن",
-                "price" => 180000,
-                "image" => "assets/image/p2.jpg"
-            ],
-            [
-                "name" => "پارچه مخمل",
-                "price" => 480000,
-                "image" => "assets/image/p3.jpg"
-            ],
-            [
-                "name" => "پارچه مازراتی",
-                "price" => 320000,
-                "image" => "assets/image/p4.jpg"
-            ]
         ];
 
-        // نمایش محصولات
-        foreach ($products as $product): ?>
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="product-card">
-                    <img src="<?php echo get_template_directory_uri() . '/' . $product['image']; ?>"
-                        alt="<?php echo $product['name']; ?>">
-                    <div class="product-info d-flex justify-content-between">
-                        <span class="product-name"><?php echo $product['name']; ?></span>
-                        <span class="product-price"><?php echo number_format($product['price']); ?> تومان</span>
+        $featured_products = new WP_Query($args);
+
+        if ($featured_products->have_posts()) :
+            while ($featured_products->have_posts()) : $featured_products->the_post();
+                global $product;
+                ?>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="product-card shadow-sm">
+                        <!-- تصویر محصول -->
+                        <a href="<?php the_permalink(); ?>" class="d-block">
+                            <?php echo $product->get_image('woocommerce_thumbnail', ['class' => 'card-img-top', 'style' => 'aspect-ratio: 1/1; object-fit: cover;']); ?>
+                        </a>
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <!-- نام محصول -->
+                            <span class="product-name text-dark">
+                                <a href="<?php the_permalink(); ?>" class="text-decoration-none text-dark">
+                                    <?php the_title(); ?>
+                                </a>
+                            </span>
+                            <!-- قیمت محصول -->
+                            <span class="product-price text-warning">
+                                <?php echo $product->get_price_html(); ?>
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+                <?php
+            endwhile;
+            wp_reset_postdata();
+        else :
+            ?>
+            <p class="text-center">هیچ محصول ویژه‌ای یافت نشد!</p>
+        <?php endif; ?>
     </div>
 </div>
+
+
+
 
 <!-- قسمت وبلاگ ها -->
 
 <div class="container my-5">
-    <h2 class="text-center mb-4">در وبلاگ می‌خوانید...</h2>
+<h2 class="section-title text-center">در وبلاگ می‌خوانید...</h2>
     <div class="row g-3">
-        <?php
-        // داده‌های مقالات
-        $articles = [
-            [
-                "title" => "بررسی استایل نعیمه نظام‌دوست در جوکر",
-                "description" => "از استایل‌های جذاب تا قشنگ",
-                "image" => "assets/image/p4.jpg",
-                "link" => "#"
-            ],
-            [
-                "title" => "چگونه خوشتیپ‌ترین باشیم؟!",
-                "description" => "با این استایل‌ها حسابی دلبری کن!",
-                "image" => "assets/image/p4.jpg",
-                "link" => "#"
-            ],
-            [
-                "title" => "ایده استایل رسمی در شرکت",
-                "description" => "دیگه برای لباس استرس نداشته باش!",
-                "image" => "assets/image/p4.jpg",
-                "link" => "#"
-            ]
-        ];
+            <?php
+            // ایجاد کوئری برای دریافت آخرین مطالب
+            $latest_posts = new WP_Query([
+                'post_type' => 'post', // نوع پست (مطالب)
+                'posts_per_page' => 5, // تعداد پست‌ها
+            ]);
 
-        // نمایش مقالات
-        foreach ($articles as $article): ?>
-            <div class="col-12">
-                <div class="card blog-card">
-                    <img src="<?php echo get_template_directory_uri() . '/' . $article['image']; ?>"
-                         alt="<?php echo $article['title']; ?>" class="img-fluid">
-                    <div class="text-weblog d-flex flex-column justify-content-between align-items-start p-3">
-                        <div>
-                            <h5 class="blog-title mb-2"><?php echo $article['title']; ?></h5>
-                            <p class="text-muted mb-0"><?php echo $article['description']; ?></p>
+            // اجرای حلقه وردپرس
+            if ($latest_posts->have_posts()):
+                while ($latest_posts->have_posts()): $latest_posts->the_post(); ?>
+                    <div class="col-12">
+                        <div class="card blog-card flex-row align-items-center">
+                            <!-- تصویر شاخص -->
+                            <div class="col-3 p-0">
+                                <?php if (has_post_thumbnail()): ?>
+                                    <img src="<?php the_post_thumbnail_url('medium'); ?>" 
+                                        alt="<?php the_title(); ?>" class="image-container">
+                                <?php else: ?>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/image/p1.jpg" 
+                                        alt="تصویر پیش‌فرض" class="image-container">
+                                <?php endif; ?>
+                            </div>
+
+                            <!-- متن پست -->
+                            <div class="text-weblog col-9 d-flex justify-content-between align-items-center p-3">
+                                <div>
+                                    <h5 class="blog-title mb-2"><?php the_title(); ?></h5>
+                                    <p class="text-muted mb-1">
+                                        <?php echo get_the_date('j F Y'); ?> | نوشته‌شده توسط <?php the_author(); ?>
+                                    </p>
+                                    <p class="text-muted mb-1">
+                                        <?php the_excerpt(); ?>
+                                    </p>
+                                </div>
+                                <a href="<?php the_permalink(); ?>" class="read-more-btn">اینجا بخوانید</a>
+                            </div>
                         </div>
-                        <a href="<?php echo $article['link']; ?>" class="read-more-btn mt-auto">اینجا بخوانید</a>
                     </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
+                <?php endwhile;
+                wp_reset_postdata(); // بازنشانی کوئری
+            else: ?>
+                <p>هیچ مطلبی یافت نشد.</p>
+            <?php endif; ?>
     </div>
 </div>
-
-
-
-
-
-
-
 
 
 <?php
