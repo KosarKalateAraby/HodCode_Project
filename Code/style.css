@@ -13,80 +13,115 @@ Text Domain: dibaj
 
 /* -------- Font --------- */
 @font-face {
-  font-family: 'Shabnam-Light'; /* نام فونت */
-  src: url('./assets/fonts/shabnam/Shabnam-Light.ttf') format('truetype'); /* فرمت فونت */
-  font-weight: normal; /* وزن فونت */
-  font-style: normal; /* استایل فونت */
+  font-family: 'Shabnam-Light';
+  /* نام فونت */
+  src: url('./assets/fonts/shabnam/Shabnam-Light.ttf') format('truetype');
+  /* فرمت فونت */
+  font-weight: normal;
+  /* وزن فونت */
+  font-style: normal;
+  /* استایل فونت */
 }
 
 @font-face {
-  font-family: 'Shabnam-bold'; /* نام فونت */
-  src: url('./assets/fonts/shabnam/Shabnam-Bold.ttf') format('truetype'); /* فرمت فونت */
-  font-weight: normal; /* وزن فونت */
-  font-style: normal; /* استایل فونت */
+  font-family: 'Shabnam-bold';
+  /* نام فونت */
+  src: url('./assets/fonts/shabnam/Shabnam-Bold.ttf') format('truetype');
+  /* فرمت فونت */
+  font-weight: normal;
+  /* وزن فونت */
+  font-style: normal;
+  /* استایل فونت */
 }
+
 @font-face {
-  font-family: 'Shabnam-medium'; /* نام فونت */
-  src: url('./assets/fonts/shabnam/Shabnam-Medium.ttf') format('truetype'); /* فرمت فونت */
-  font-weight: normal; /* وزن فونت */
-  font-style: normal; /* استایل فونت */
+  font-family: 'Shabnam-medium';
+  /* نام فونت */
+  src: url('./assets/fonts/shabnam/Shabnam-Medium.ttf') format('truetype');
+  /* فرمت فونت */
+  font-weight: normal;
+  /* وزن فونت */
+  font-style: normal;
+  /* استایل فونت */
 }
+
 @font-face {
-  font-family: 'Shabnam'; /* نام فونت */
-  src: url('./assets/fonts/shabnam/Shabnam.ttf') format('truetype'); /* فرمت فونت */
-  font-weight: normal; /* وزن فونت */
-  font-style: normal; /* استایل فونت */
+  font-family: 'Shabnam';
+  /* نام فونت */
+  src: url('./assets/fonts/shabnam/Shabnam.ttf') format('truetype');
+  /* فرمت فونت */
+  font-weight: normal;
+  /* وزن فونت */
+  font-style: normal;
+  /* استایل فونت */
 }
 
 :root {
-  --color-blue: #00264D; /* رنگ اصلی */
+  --color-blue: #00264D;
+  /* رنگ اصلی */
   --color-mustard: #FFBF00;
 }
 
 /* ------- Style of header.php -------- */
-body{
+body {
   font-family: Shabnam;
 }
+
 .navbar-brand img {
-width: 90px;
-display: block; /* رفتار پیش‌فرض inline را حذف می‌کند */
-margin: 0; /* حذف هرگونه فاصله اضافی */
-margin-top: -5px;
+  width: 90px;
+  display: block;
+  /* رفتار پیش‌فرض inline را حذف می‌کند */
+  margin: 0;
+  /* حذف هرگونه فاصله اضافی */
+  margin-top: -5px;
 }
 
 .navbar {
-display: flex;
-align-items: center; /* تمام عناصر در یک خط وسط‌چین می‌شوند */
-justify-content: flex-start; /* فاصله مناسب بین لوگو و منو */
-height: 80px; /* برای تطابق ارتفاع */
+  display: flex;
+  align-items: center;
+  /* تمام عناصر در یک خط وسط‌چین می‌شوند */
+  justify-content: flex-start;
+  /* فاصله مناسب بین لوگو و منو */
+  height: 80px;
+  /* برای تطابق ارتفاع */
 }
 
 .navbar-brand {
-display: flex;
-align-items: center;
-justify-content: center;
-height: 100%; /* ارتفاع برابر با منو */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  /* ارتفاع برابر با منو */
 }
+
 .navbar-toggler {
-margin-right: auto; /* جابجایی دکمه منو به چپ */
+  margin-right: auto;
+  /* جابجایی دکمه منو به چپ */
 }
+
 .navbar-nav {
-display: flex;
-align-items: center; /* هم‌تراز عمودی با لوگو */
-margin-left: auto; /* فاصله سمت چپ برای منو */
-margin-right: 5px !important;
-padding-top: 0 !important;
+  display: flex;
+  align-items: center;
+  /* هم‌تراز عمودی با لوگو */
+  margin-left: auto;
+  /* فاصله سمت چپ برای منو */
+  margin-right: 5px !important;
+  padding-top: 0 !important;
 }
 
 .nav-item {
-margin: 0 10px; /* فاصله بین آیتم‌ها */
+  margin: 0 10px;
+  /* فاصله بین آیتم‌ها */
 }
 
 /* استایل اولیه برای لینک‌ها */
 .navbar-nav a {
-  text-decoration: none; /* حذف خط پیش‌فرض */
-  color: black; /* رنگ متن */
-  position: relative; /* برای استفاده از ::after */
+  text-decoration: none;
+  /* حذف خط پیش‌فرض */
+  color: black;
+  /* رنگ متن */
+  position: relative;
+  /* برای استفاده از ::after */
   padding: 5px 0;
   font-family: Shabnam;
 }
@@ -94,20 +129,29 @@ margin: 0 10px; /* فاصله بین آیتم‌ها */
 .navbar-nav a::after {
   content: "";
   position: absolute;
-  bottom: 0; /* خط در پایین متن */
-  left: 50%; /* شروع خط از وسط */
-  transform: translateX(-50%); /* جابه‌جایی به سمت چپ نصف عرض */
-  height: 3px; /* ضخامت خط */
-  width: 0; /* عرض پیش‌فرض خط: 0 */
-  background-color: var(--color-blue); /* رنگ خط */
-  transition: width 0.3s ease-in-out; /* انیمیشن آرام باز شدن خط */
-  border-radius: 2px; /* گرد شدن گوشه‌های خط */
+  bottom: 0;
+  /* خط در پایین متن */
+  left: 50%;
+  /* شروع خط از وسط */
+  transform: translateX(-50%);
+  /* جابه‌جایی به سمت چپ نصف عرض */
+  height: 3px;
+  /* ضخامت خط */
+  width: 0;
+  /* عرض پیش‌فرض خط: 0 */
+  background-color: var(--color-blue);
+  /* رنگ خط */
+  transition: width 0.3s ease-in-out;
+  /* انیمیشن آرام باز شدن خط */
+  border-radius: 2px;
+  /* گرد شدن گوشه‌های خط */
 }
 
 /* وقتی هاور یا کلیک می‌شود */
 .navbar-nav a:hover::after,
 .navbar-nav a.active::after {
-  width: 50%; /* عرض خط در حالت هاور یا فعال */
+  width: 50%;
+  /* عرض خط در حالت هاور یا فعال */
 }
 
 .header-icons i {
@@ -116,248 +160,291 @@ margin: 0 10px; /* فاصله بین آیتم‌ها */
   color: black;
 }
 
-.header-icons i:hover{
+.header-icons i:hover {
   color: var(--color-blue);
 }
 
 /* فاصله بین آیتم‌های منو */
 .navbar-nav .nav-item {
-margin-right: 15px;
+  margin-right: 15px;
 }
 
 /* استایل لینک‌های منو */
 .navbar-nav .nav-link {
-color: black;
-text-decoration: none;
-transition: color 0.3s ease-in-out;
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
 }
 
 /* هاور برای لینک‌های منو */
 .navbar-nav .nav-link:hover {
-color: var(--color-blue);
+  color: var(--color-blue);
 }
 
 /* طراحی ریسپانسیو */
 
 /* استایل منوی کناری */
 #sidebar-menu {
-position: fixed;
-top: 0;
-left: -250px;
-width: 250px;
-height: 100vh;
-background-color: #fff;
-z-index: 1050;
-overflow-y: auto;
-box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-transition: left 0.3s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 1050;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease-in-out;
 }
 
 #sidebar-menu.open {
-left: 0;
+  left: 0;
 }
+
 /* حذف خطوط زیر لینک‌ها */
 #sidebar-menu .list-group-item a {
-text-decoration: none;
-color: black;
-transition: color 0.3s ease-in-out;
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease-in-out;
 }
 
 #sidebar-menu .list-group-item a:hover {
-color: var(--color-blue);
+  color: var(--color-blue);
 }
 
 /* استایل باکس پایین */
 .fixed-bottom {
-background-color: #fff;
-z-index: 1050;
-box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  z-index: 1050;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .fixed-bottom a {
-color: #6c757d;
-font-size: 0.875rem;
+  color: #6c757d;
+  font-size: 0.875rem;
 }
 
 .fixed-bottom a i {
-display: block;
-margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .fixed-bottom a:hover {
-color: var(--color-blue);
+  color: var(--color-blue);
 }
 
 /* نمایش فقط در موبایل و تبلت */
 @media (min-width: 992px) {
-#menu-button,
-#sidebar-menu,
-.fixed-bottom {
+
+  #menu-button,
+  #sidebar-menu,
+  .fixed-bottom {
     display: none !important;
-}
+  }
 }
 
 @media (max-width:992px) {
-.navbar-collapse {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 50%; /* نصف صفحه */
-  background-color: #ddd;
-  overflow-y: auto;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
-  z-index: 2000;
-}
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 50%;
+    /* نصف صفحه */
+    background-color: #ddd;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 2000;
+  }
 
-.navbar-collapse.show {
-  transform: translateX(0);
-}
+  .navbar-collapse.show {
+    transform: translateX(0);
+  }
 
-.navbar-toggler {
-  z-index: 1100;
-}
+  .navbar-toggler {
+    z-index: 1100;
+  }
 
-.navbar-nav {
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 1rem;
-}
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
 
-.nav-link {
-  padding: 0.5rem 0;
-}
+  .nav-link {
+    padding: 0.5rem 0;
+  }
 }
 
 #sidebar-menu {
-width: 250px;
-transition: transform 0.3s ease-in-out;
-transform: translateX(-100%);
-z-index: 1050; /* بالاتر از سایر عناصر */
+  width: 250px;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+  z-index: 1050;
+  /* بالاتر از سایر عناصر */
 }
 
 #sidebar-menu:not(.d-none) {
-transform: translateX(0);
+  transform: translateX(0);
 }
 
 /* استایل آیکون‌ها و متن */
 #footer_header {
-background-color: #fff;
-box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* سایه ملایم */
+  background-color: #fff;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  /* سایه ملایم */
 }
 
 #footer_header .d-flex {
-justify-content: space-evenly; /* فاصله مساوی بین آیکون‌ها */
+  justify-content: space-evenly;
+  /* فاصله مساوی بین آیکون‌ها */
 }
 
 #footer_header .footer-item {
-flex: 1; /* توزیع مساوی فضا بین آیکون‌ها */
-font-size: 0.8rem; /* اندازه متن زیر آیکون */
-color: #555; /* رنگ متن */
-text-align: center;
-padding: 5px;
+  flex: 1;
+  /* توزیع مساوی فضا بین آیکون‌ها */
+  font-size: 0.8rem;
+  /* اندازه متن زیر آیکون */
+  color: #555;
+  /* رنگ متن */
+  text-align: center;
+  padding: 5px;
 }
 
 #footer_header .footer-item i {
-font-size: 1.2rem; /* اندازه آیکون */
-color: #333; /* رنگ آیکون */
-display: block; /* قرار دادن آیکون در یک خط مجزا */
-margin-bottom: 5px; /* فاصله بین آیکون و متن */
-transition: color 0.3s ease, transform 0.3s ease; /* انیمیشن تغییر رنگ و اندازه */
+  font-size: 1.2rem;
+  /* اندازه آیکون */
+  color: #333;
+  /* رنگ آیکون */
+  display: block;
+  /* قرار دادن آیکون در یک خط مجزا */
+  margin-bottom: 5px;
+  /* فاصله بین آیکون و متن */
+  transition: color 0.3s ease, transform 0.3s ease;
+  /* انیمیشن تغییر رنگ و اندازه */
 }
+
 #footer_header .footer-item i:hover {
-color: var(--color-blue); /* تغییر رنگ هنگام هاور */
-transform: scale(1.2); /* بزرگ‌تر شدن آیکون هنگام هاور */
+  color: var(--color-blue);
+  /* تغییر رنگ هنگام هاور */
+  transform: scale(1.2);
+  /* بزرگ‌تر شدن آیکون هنگام هاور */
 }
 
 /* استایل ایکون هنگام فعال بودن */
 #footer_header .footer-item.active i {
-font-size: 1.8rem; /* بزرگ‌تر شدن آیکون */
-color: var(--color-blue); /* تغییر رنگ */
-transition: all 0.3s ease-in-out; /* انیمیشن برای تغییر */
+  font-size: 1.8rem;
+  /* بزرگ‌تر شدن آیکون */
+  color: var(--color-blue);
+  /* تغییر رنگ */
+  transition: all 0.3s ease-in-out;
+  /* انیمیشن برای تغییر */
 }
+
 #footer_header .footer-item.active p {
-font-weight: bold;
-color: var(--color-blue);
+  font-weight: bold;
+  color: var(--color-blue);
 }
 
 #footer_header .footer-item p {
-color: #666; /* رنگ ملایم‌تر */
-margin: 0; /* حذف فاصله اضافی */
-font-size: 0.9rem; /* اندازه فونت متن */
-font-family: Shabnam !important;
+  color: #666;
+  /* رنگ ملایم‌تر */
+  margin: 0;
+  /* حذف فاصله اضافی */
+  font-size: 0.9rem;
+  /* اندازه فونت متن */
+  font-family: Shabnam !important;
 }
 
 /* ریسپانسیو برای موبایل و تبلت */
 @media (max-width: 768px) {
-#footer_header .footer-item i {
-    font-size: 1.2rem; /*  اندازه آیکون در موبایل */
-}
+  #footer_header .footer-item i {
+    font-size: 1.2rem;
+    /*  اندازه آیکون در موبایل */
+  }
 
-#footer_header .footer-item p {
-    font-size: 1rem; /*  اندازه متن در موبایل */
-}
+  #footer_header .footer-item p {
+    font-size: 1rem;
+    /*  اندازه متن در موبایل */
+  }
 }
 
 @media (max-width: 480px) {
-#footer_header {
-    padding: 0.5rem 0; /* کاهش فاصله کلی در موبایل‌های کوچک */
+  #footer_header {
+    padding: 0.5rem 0;
+    /* کاهش فاصله کلی در موبایل‌های کوچک */
+  }
+
+  #footer_header .footer-item i {
+    font-size: 1.2rem;
+    /* آیکون‌ها */
+  }
+
+  #footer_header .footer-item p {
+    font-size: 0.7rem;
+    /* متن */
+  }
 }
 
-#footer_header .footer-item i {
-    font-size: 1.2rem; /* آیکون‌ها */
-}
-
-#footer_header .footer-item p {
-    font-size: 0.7rem; /* متن */
-}
-}
 /* استایل کشویی */
 .account-icon {
-font-family: Shabnam;
-position: relative;
-font-size: 14px; /* کوچکتر کردن متن */
+  font-family: Shabnam;
+  position: relative;
+  font-size: 14px;
+  /* کوچکتر کردن متن */
 }
 
 .account-dropdown {
-display: none; /* مخفی به‌صورت پیش‌فرض */
-position: absolute;
-top: 100%; /* قرار دادن کشویی پایین آیکون */
-right: 0; /* راست‌چین کردن کشویی */
-background-color: #fff;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* سایه برای زیبایی */
-border-radius: 5px;
-padding: 5px 0; /* حذف فاصله اضافی */
-z-index: 1000;
-white-space: nowrap;
-min-width: 120px; /* عرض ثابت */
+  display: none;
+  /* مخفی به‌صورت پیش‌فرض */
+  position: absolute;
+  top: 100%;
+  /* قرار دادن کشویی پایین آیکون */
+  right: 0;
+  /* راست‌چین کردن کشویی */
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* سایه برای زیبایی */
+  border-radius: 5px;
+  padding: 5px 0;
+  /* حذف فاصله اضافی */
+  z-index: 1000;
+  white-space: nowrap;
+  min-width: 120px;
+  /* عرض ثابت */
 }
 
 /* آیتم‌های کشویی */
 .account-dropdown a {
-display: flex;
-align-items: center; /* هم‌راستا کردن آیکون و متن */
-gap: 8px; /* فاصله بین آیکون و متن */
-padding: 5px 10px;
-font-size: 13px; /* کوچکتر کردن متن */
-color: #333;
-text-decoration: none;
-transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  align-items: center;
+  /* هم‌راستا کردن آیکون و متن */
+  gap: 8px;
+  /* فاصله بین آیکون و متن */
+  padding: 5px 10px;
+  font-size: 13px;
+  /* کوچکتر کردن متن */
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .account-dropdown a i {
-font-size: 16px; /* کوچک‌تر کردن آیکون‌ها */
+  font-size: 16px;
+  /* کوچک‌تر کردن آیکون‌ها */
 }
 
 .account-dropdown a:hover {
-background-color: #f0f0f0; /* تغییر رنگ پس‌زمینه در هاور */
-color: var(--color-blue); /* رنگ متن در هاور */
+  background-color: #f0f0f0;
+  /* تغییر رنگ پس‌زمینه در هاور */
+  color: var(--color-blue);
+  /* رنگ متن در هاور */
 }
 
 /* نمایش کشویی هنگام هاور */
 .account-icon:hover .account-dropdown {
-display: block;
+  display: block;
 }
 
 /* ----------- section slider ------------ */
@@ -368,62 +455,83 @@ display: block;
 }
 
 .carousel-indicators button {
-  width: 10px !important; /* اندازه دایره */
-  height: 10px !important; /* اندازه دایره */
+  width: 10px !important;
+  /* اندازه دایره */
+  height: 10px !important;
+  /* اندازه دایره */
   border-radius: 50% !important;
-  background-color: transparent; /* حذف رنگ داخلی */
-  border: 2px solid #fff; /* افزودن حاشیه */
+  background-color: transparent;
+  /* حذف رنگ داخلی */
+  border: 2px solid #fff;
+  /* افزودن حاشیه */
 }
 
 .carousel-indicators .active {
-  background-color: #fff; /* رنگ دایره فعال */
+  background-color: #fff;
+  /* رنگ دایره فعال */
 }
 
 /* ------------- section Cards ----------- */
-.bg-primary{
+.bg-primary {
   background-color: var(--color-blue) !important;
 }
-.bg-warning{
+
+.bg-warning {
   background-color: var(--color-mustard) !important;
 }
+
 /* استایل کارت‌ها */
 .card-custom {
-  height: 150px; /* ارتفاع ثابت */
-  margin: 10px; /* فاصله بین کارت‌ها */
-  border-radius: 12px; /* گوشه‌های کارت */
+  height: 150px;
+  /* ارتفاع ثابت */
+  margin: 10px;
+  /* فاصله بین کارت‌ها */
+  border-radius: 12px;
+  /* گوشه‌های کارت */
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-custom:hover {
-  transform: scale(1.05); /* افکت کوچک بزرگ شدن هنگام هاور */
+  transform: scale(1.05);
+  /* افکت کوچک بزرگ شدن هنگام هاور */
   box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* اندازه متن در کارت‌ها */
 .custom-text {
-  font-size: 1.2rem; /* اندازه متن پیش‌فرض */
-  text-align: center; /* وسط‌چین کردن متن */
-  line-height: 1.5; /* خوانایی بهتر */
+  font-size: 1.2rem;
+  /* اندازه متن پیش‌فرض */
+  text-align: center;
+  /* وسط‌چین کردن متن */
+  line-height: 1.5;
+  /* خوانایی بهتر */
 }
 
 /* ریسپانسیو برای تبلت و موبایل */
 @media (max-width: 768px) {
   .card-custom {
-      height: 120px; /* ارتفاع کارت‌ها در تبلت */
+    height: 120px;
+    /* ارتفاع کارت‌ها در تبلت */
   }
+
   .custom-text {
-      font-size: 0.9rem; /* کوچک‌تر شدن متن در تبلت */
+    font-size: 0.9rem;
+    /* کوچک‌تر شدن متن در تبلت */
   }
 }
 
 @media (max-width: 576px) {
   .card-custom {
-      height: 100px; /* ارتفاع کارت‌ها در موبایل */
+    height: 100px;
+    /* ارتفاع کارت‌ها در موبایل */
   }
+
   .custom-text {
-      font-size: 0.8rem; /* کوچک‌تر شدن متن در موبایل */
-      white-space: pre-line; /* شکستن متن به خطوط جدید */
+    font-size: 0.8rem;
+    /* کوچک‌تر شدن متن در موبایل */
+    white-space: pre-line;
+    /* شکستن متن به خطوط جدید */
   }
 }
 
@@ -435,9 +543,11 @@ display: block;
   text-align: center;
   transition: transform 0.2s;
 }
+
 .product-card:hover {
   transform: scale(1.05);
 }
+
 .product-card img {
   width: 100%;
   height: auto;
@@ -445,42 +555,62 @@ display: block;
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
+
 .product-name {
   font-size: 1rem;
   color: black;
 }
+
 .product-price {
   color: var(--color-mustard);
   font-size: 1rem;
 }
+
 .container h2 {
   margin-bottom: 40px;
   font-weight: bold;
 }
-@media (max-width: 576px) { 
-  .product-name, .product-price { font-size: 0.6rem; } 
+
+@media (max-width: 576px) {
+
+  .product-name,
+  .product-price {
+    font-size: 0.6rem;
+  }
 }
+
 @media (max-width: 768px) {
-  .product-name, .product-price { font-size: 0.6rem; } 
+
+  .product-name,
+  .product-price {
+    font-size: 0.6rem;
+  }
 }
 
 /* ------section article--------- */
 /* کارت وبلاگ */
 .blog-card {
-  height: 200px; /* ارتفاع ثابت */
-  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.25); /* سایه داخلی */
-  border-radius: 10px; /* گوشه‌های گرد */
+  height: 200px;
+  /* ارتفاع ثابت */
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.25);
+  /* سایه داخلی */
+  border-radius: 10px;
+  /* گوشه‌های گرد */
   overflow: hidden;
   display: flex;
-  flex-direction: column; /* اجزای کارت به صورت عمودی */
-  position: relative; /* برای موقعیت‌دهی دکمه */
+  flex-direction: column;
+  /* اجزای کارت به صورت عمودی */
+  position: relative;
+  /* برای موقعیت‌دهی دکمه */
 }
 
 /* تصویر کارت */
 .blog-card .image-container {
   flex: 1;
-  background-size: cover; /* حالت کاور برای تصویر */
-  background-position: center; /* مرکز تصویر */
+  background-size: cover;
+  /* حالت کاور برای تصویر */
+  background-position: center;
+  /* مرکز تصویر */
   background-repeat: no-repeat;
 }
 
@@ -502,9 +632,12 @@ display: block;
   border-radius: 20px;
   text-decoration: none;
   padding: 0.4rem 0.8rem;
-  position: absolute; /* موقعیت‌دهی دکمه */
-  bottom: 10px; /* فاصله از پایین کارت */
-  left: 10px; /* فاصله از چپ کارت */
+  position: absolute;
+  /* موقعیت‌دهی دکمه */
+  bottom: 10px;
+  /* فاصله از پایین کارت */
+  left: 10px;
+  /* فاصله از چپ کارت */
 }
 
 .read-more-btn:hover {
@@ -512,44 +645,60 @@ display: block;
 }
 
 /* ریسپانسیو */
-@media (max-width: 991px) { /* حالت تبلت */
+@media (max-width: 991px) {
+
+  /* حالت تبلت */
   .blog-card {
-    height: auto; /* ارتفاع بر اساس محتوا */
+    height: auto;
+    /* ارتفاع بر اساس محتوا */
   }
 
   .blog-card .image-container {
-    height: 150px; /* ارتفاع مشخص برای تصویر */
+    height: 150px;
+    /* ارتفاع مشخص برای تصویر */
   }
 
   .blog-title {
-    font-size: 1rem; /* کاهش اندازه عنوان */
+    font-size: 1rem;
+    /* کاهش اندازه عنوان */
   }
-  .text-muted{
+
+  .text-muted {
     font-size: 0.8rem;
   }
+
   .read-more-btn {
-    font-size: 0.8rem; /* دکمه کوچک‌تر */
+    font-size: 0.8rem;
+    /* دکمه کوچک‌تر */
     padding: 0.3rem 0.6rem;
   }
 }
 
-@media (max-width: 576px) { /* حالت موبایل */
+@media (max-width: 576px) {
+
+  /* حالت موبایل */
   .blog-card {
-    height: auto; /* ارتفاع بر اساس محتوا */
+    height: auto;
+    /* ارتفاع بر اساس محتوا */
   }
 
   .blog-card .image-container {
-    height: 120px; /* ارتفاع محدودتر */
+    height: 120px;
+    /* ارتفاع محدودتر */
   }
 
   .blog-title {
-    font-size: 0.8rem; /* عنوان کوچک‌تر */
+    font-size: 0.8rem;
+    /* عنوان کوچک‌تر */
   }
-  .text-muted{
+
+  .text-muted {
     font-size: 0.6rem;
   }
+
   .read-more-btn {
-    font-size: 0.5rem; /* دکمه کوچک‌تر */
+    font-size: 0.5rem;
+    /* دکمه کوچک‌تر */
     padding: 0.2rem 0.5rem;
   }
 }
@@ -619,7 +768,7 @@ display: block;
   /* ارتفاع خودکار */
 }
 
-.attachment-woocommerce_thumbnail.size-woocommerce_thumbnail{
+.attachment-woocommerce_thumbnail.size-woocommerce_thumbnail {
   width: 100%;
   /* عرض */
   height: auto;
@@ -634,7 +783,7 @@ display: block;
   /* گرد کردن گوشه‌ها */
 }
 
-.attachment-woocommerce_thumbnail.size-woocommerce_thumbnail:hover{
+.attachment-woocommerce_thumbnail.size-woocommerce_thumbnail:hover {
   transform: scale(1.04);
   /* بزرگنمایی تصاویر در حالت Hover */
 }
@@ -662,15 +811,15 @@ display: block;
 
 @media (min-width: 768px) {
   .width-custom {
-      width: 33.3333%;
-      /* عرض کمتر در صفحات بزرگتر */
+    width: 33.3333%;
+    /* عرض کمتر در صفحات بزرگتر */
   }
 }
 
 @media (min-width: 1024px) {
   .width-custom {
-      width: 25%;
-      /* عرض کوچکتر در صفحات بزرگتر */
+    width: 25%;
+    /* عرض کوچکتر در صفحات بزرگتر */
   }
 }
 
@@ -703,13 +852,15 @@ display: block;
   align-self: flex-end;
   /* تنظیم مکان دکمه */
 }
-.btn-custom:hover{
+
+.btn-custom:hover {
   border: 2px solid var(--color-blue);
   background-color: var(--color-blue);
   /* رنگ پس زمینه در حالت Hover */
   color: white;
   /* رنگ متن در حالت Hover */
 }
+
 .btn-custom:focus,
 .btn-custom:active {
   outline: none;
@@ -717,71 +868,92 @@ display: block;
   box-shadow: none;
   /* حذف سایه پیش‌فرض */
 }
+
 @media (max-width: 768px) {
   .btn-custom {
-      width: 100%;
-      /* عرض 100% برای حالت کمتر از 1024 پیکسل */
-      text-align: center;
-      /* مرکز بندی متن */
-      font-size: 15px;
-      /* افزایش اندازه فونت */
+    width: 100%;
+    /* عرض 100% برای حالت کمتر از 1024 پیکسل */
+    text-align: center;
+    /* مرکز بندی متن */
+    font-size: 15px;
+    /* افزایش اندازه فونت */
   }
 }
 
-    .flex-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .card-title, .card-text {
-        margin: 5px;
-    }
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title,
+.card-text {
+  margin: 5px;
+}
 
 /* --------- style of footer.php ------------- */
 .bg-custom-dark {
-  background-color: #00264D; /* رنگ زمینه مشابه تصویر */
+  background-color: var(--color-blue);
+  /* رنگ زمینه مشابه تصویر */
 }
 
 footer h3 {
-  margin-bottom: 0.5rem; /* فاصله زیر عنوان */
-  margin-top: 0; /* حذف فاصله بالای عنوان */
-  font-size: 1.2rem; /* اندازه بزرگ‌تر عنوان */
-  color: #FFFFFF; /* رنگ عنوان */
+  margin-bottom: 0.5rem;
+  /* فاصله زیر عنوان */
+  margin-top: 0;
+  /* حذف فاصله بالای عنوان */
+  font-size: 1.2rem;
+  /* اندازه بزرگ‌تر عنوان */
+  color: #FFFFFF;
+  /* رنگ عنوان */
 }
 
 footer p {
-  margin-bottom: 0.2rem; /* فاصله زیر پاراگراف */
-  font-size: 0.9rem; /* اندازه متن */
-  color: #FFFFFF; /* رنگ متن */
+  margin-bottom: 0.2rem;
+  /* فاصله زیر پاراگراف */
+  font-size: 0.9rem;
+  /* اندازه متن */
+  color: #FFFFFF;
+  /* رنگ متن */
 }
 
 footer a {
-  text-decoration: none; /* بدون زیرخط */
-  color: white; /* رنگ لینک */
+  text-decoration: none;
+  /* بدون زیرخط */
+  color: white;
+  /* رنگ لینک */
 }
 
 footer a:hover {
-  text-decoration: underline; /* زیرخط برای hover */
+  text-decoration: underline;
+  /* زیرخط برای hover */
 }
 
 .d-flex.align-items-center {
-  display: flex; /* تراز کردن در یک خط */
-  justify-content: space-between; /* فاصله میان شماره تماس و آیکون‌ها */
-  align-items: center; /* تراز عمودی */
+  display: flex;
+  /* تراز کردن در یک خط */
+  justify-content: space-between;
+  /* فاصله میان شماره تماس و آیکون‌ها */
+  align-items: center;
+  /* تراز عمودی */
 }
 
 .d-flex.align-items-center p {
-  margin: 0; /* حذف فاصله اضافی پایین شماره تماس */
+  margin: 0;
+  /* حذف فاصله اضافی پایین شماره تماس */
 }
 
 .mb-2 {
-  margin-bottom: 0.5rem; /* فاصله مناسب بین شماره تماس و ایمیل */
+  margin-bottom: 0.5rem;
+  /* فاصله مناسب بین شماره تماس و ایمیل */
 }
 
 .col-md-4 div p {
-  text-align: right; /* هم‌راستا کردن تمامی متن‌ها به راست */
+  text-align: right;
+  /* هم‌راستا کردن تمامی متن‌ها به راست */
 }
-@media(max-width:991px){
+
+@media(max-width:991px) {
   /* footer{
       margin-bottom: 50px;
   } */
@@ -791,9 +963,10 @@ footer a:hover {
 .section-title {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #1a375b;
+  color: var(--color-blue);
   margin-bottom: 1rem;
 }
+
 .blogs-card {
   background: #fff;
   border-radius: 10px;
@@ -801,47 +974,59 @@ footer a:hover {
   overflow: hidden;
   transition: transform 0.2s;
 }
+
 .blogs-card:hover {
   transform: translateY(-5px);
 }
+
 .image-container {
   width: 100%;
   height: 200px;
   background-size: cover;
   background-position: center;
 }
+
 .blogs-content {
   padding: 15px;
 }
+
 .blogs-title {
   font-size: 1.2rem;
   font-weight: bold;
   color: var(--color-blue);
 }
+
 .blogs-meta {
   font-size: 0.9rem;
   color: #888;
   margin-bottom: 0.5rem;
 }
+
 .blog-description {
   font-size: 0.9rem;
   color: #555;
 }
+
 .read-more {
   color: var(--color-blue);
   text-decoration: none;
 }
+
 .read-more:hover {
   text-decoration: underline;
 }
+
 .blogs-card-link {
   display: block;
-  text-decoration: none; /* حذف خط زیر لینک */
-  color: inherit; /* به ارث بردن رنگ متن */
+  text-decoration: none;
+  /* حذف خط زیر لینک */
+  color: inherit;
+  /* به ارث بردن رنگ متن */
 }
 
 .blogs-card {
-  cursor: pointer; /* موس به حالت pointer تغییر کند */
+  cursor: pointer;
+  /* موس به حالت pointer تغییر کند */
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -850,16 +1035,20 @@ footer a:hover {
 }
 
 .blogs-card:hover {
-  transform: translateY(-5px); /* انیمیشن هنگام هاور */
+  transform: translateY(-5px);
+  /* انیمیشن هنگام هاور */
 }
 
 
 /* --------- style of single.php ---------- */
 /* خوانایی متن در مقاله */
 .post-content {
-  text-align: justify; /* متن به صورت توجیه‌شده */
-  line-height: 1.8; /* فاصله خطوط */
-  font-size: 1rem; /* اندازه فونت */
+  text-align: justify;
+  /* متن به صورت توجیه‌شده */
+  line-height: 1.8;
+  /* فاصله خطوط */
+  font-size: 1rem;
+  /* اندازه فونت */
   color: #333;
 }
 
@@ -880,3 +1069,824 @@ h4.text-primary {
   background-color: #f8f9fa;
 }
 
+/* --------- style of About-Us.php ------------- */
+
+/* استایل برای بدنه صفحه درباره ما */
+.row {
+  margin-bottom: 15px;
+  /* فاصله پایین */
+}
+
+/* استایل برای پاراگراف‌ها */
+.paragraph {
+  text-align: right;
+  /* تراز راست چین */
+}
+
+/* استایل برای تصاویر */
+.img-fluid {
+  width: 400px;
+  /* عرض تصویر */
+  height: 300px;
+  /* ارتفاع تصویر */
+  border-radius: 15px;
+  /* گرد کردن گوشه‌ها */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* سایه برای تصویر */
+}
+
+/* استایل برای آیکون‌های دایره‌ای */
+.icon-circle {
+  width: 150px;
+  /* عرض دایره */
+  height: 150px;
+  /* ارتفاع دایره */
+  background-color: #fff;
+  /* رنگ پس‌زمینه سفید */
+  border-radius: 50%;
+  /* گرد کردن کامل */
+  display: flex;
+  /* استفاده از فلکس‌باکس */
+  align-items: center;
+  /* مرکز کردن به صورت عمودی */
+  justify-content: center;
+  /* مرکز کردن به صورت افقی */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* سایه برای دایره */
+  margin: 0 auto 15px;
+  /* فاصله بالا و پایین، وسط‌چینی */
+}
+
+.icon-circle img {
+  width: 100px;
+  /* عرض تصویر آیکون */
+  height: 100px;
+  /* ارتفاع تصویر آیکون */
+}
+
+/* استایل برای موارد */
+.item {
+  text-align: center;
+  /* تراز وسط چین */
+}
+
+/* استایل برای دایره‌های کوچک‌تر */
+.circle {
+  width: 130px;
+  /* عرض دایره */
+  height: 130px;
+  /* ارتفاع دایره */
+  border-radius: 50%;
+  /* گرد کردن کامل */
+  background-color: #fff;
+  /* رنگ پس‌زمینه سفید */
+  display: flex;
+  /* استفاده از فلکس‌باکس */
+  justify-content: center;
+  /* مرکز کردن به صورت افقی */
+  align-items: center;
+  /* مرکز کردن به صورت عمودی */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* سایه برای دایره */
+  margin: 0 auto 10px;
+  /* فاصله بالا و پایین، وسط‌چینی */
+}
+
+.circle img {
+  width: 70px;
+  /* عرض تصویر */
+  height: 70px;
+  /* ارتفاع تصویر */
+}
+
+/* استایل برای مستطیل‌ها */
+.rectangle {
+  width: 200px;
+  /* عرض مستطیل */
+  height: 150px;
+  /* ارتفاع مستطیل */
+  background-color: #f0f0f0;
+  /* رنگ پس‌زمینه */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* سایه برای مستطیل */
+  margin: 0 auto;
+  /* وسط‌چینی */
+  margin-bottom: 10px;
+  /* فاصله پایین */
+}
+
+/* استایل برای عنوان صفحه درباره ما */
+.title-about {
+  text-align: right;
+  /* تراز راست چین */
+}
+
+/* استایل برای نمایشگرهای کوچک */
+@media (max-width: 766px) {
+  .img-fluid {
+    width: 100%;
+    /* عرض کامل */
+    height: 400px;
+    /* ارتفاع ثابت */
+    border-radius: 15px;
+    /* گرد کردن گوشه‌ها */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* سایه برای تصویر */
+  }
+}
+
+
+
+/* --------- style of Contact-Us.php ------------- */
+
+.mt-5 {
+  direction: rtl;
+  /* تعیین جهت متن به صورت راست چین */
+  text-align: right;
+  /* تنظیم تراز متن به سمت راست */
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  background-color: white;
+  /* رنگ پس‌زمینه فرم تماس */
+  padding: 20px;
+  /* حاشیه داخلی فرم */
+  border-radius: 10px;
+  /* گوشه‌های گرد برای فرم */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* سایه نرم برای فرم */
+  margin-bottom: 20px;
+  /* فاصله پایین فرم */
+}
+
+.contact-info {
+  display: flex;
+  /* استفاده از Flexbox برای چیدمان */
+  flex-direction: column;
+  /* چینش به صورت ستونی */
+}
+
+.contact-info .info-item {
+  display: flex;
+  /* استفاده از Flexbox برای هر مورد اطلاعات */
+  align-items: center;
+  /* تراز عمودی محتوا در مرکز */
+  margin-bottom: 10px;
+  /* فاصله پایین هر مورد */
+}
+
+.info-item .icon-circle-contact {
+  display: flex;
+  /* استفاده از Flexbox برای مرکز کردن محتوا */
+  align-items: center;
+  /* تراز عمودی محتوا در مرکز */
+  justify-content: center;
+  /* تراز افقی محتوا در مرکز */
+  width: 40px;
+  /* عرض دایره آیکون */
+  height: 40px;
+  /* ارتفاع دایره آیکون */
+  border-radius: 50%;
+  /* ایجاد دایره با گوشه‌های گرد */
+  background-color: var(--color-blue);
+  /* رنگ پس‌زمینی سورمه‌ای */
+  color: white;
+  /* رنگ متن سفید */
+  text-align: center;
+  /* تراز متن به مرکز */
+  margin-left: 10px;
+  /* فاصله چپ آیکون */
+}
+
+.social-icons {
+  display: flex;
+  /* استفاده از Flexbox برای چیدمان آیکون‌های اجتماعی */
+  align-items: center;
+  /* تراز عمودی آیکون‌ها در مرکز */
+}
+
+.social-icons a {
+  display: flex;
+  /* استفاده از Flexbox برای هر لینک اجتماعی */
+  align-items: center;
+  /* تراز عمودی محتوا در مرکز */
+  justify-content: center;
+  /* تراز افقی محتوا در مرکز */
+  width: 40px;
+  /* عرض آیکون اجتماعی */
+  height: 40px;
+  /* ارتفاع آیکون اجتماعی */
+  border-radius: 50%;
+  /* ایجاد دایره با گوشه‌های گرد */
+  background-color: var(--color-blue);
+  /* رنگ پس‌زمینی سورمه‌ای */
+  color: white;
+  /* رنگ متن سفید */
+  text-align: center;
+  /* تراز متن به مرکز */
+  margin: 5px;
+  /* فاصله بین آیکون‌ها */
+  text-decoration: none;
+}
+
+.form-contact .btn {
+  background-color: var(--color-blue);
+  /* رنگ پس‌زمینه دکمه */
+  border-radius: 25px;
+  /* گوشه‌های گرد برای دکمه */
+  border: none;
+  /* حذف حاشیه دکمه */
+  width: 20%;
+  /* عرض دکمه */
+}
+
+.form-contact .btn:hover {
+  background-color: var(--color-blue);
+  /* رنگ پس‌زمینه دکمه در حالت هاور */
+}
+
+.form-contact .form-control {
+  border-radius: 25px;
+  /* گوشه‌های گرد برای فیلدهای فرم */
+  background-color: rgb(233, 233, 233);
+  /* رنگ پس‌زمینه فیلدهای فرم */
+  border: none;
+  /* حذف حاشیه فیلدهای فرم */
+  width: 100%;
+  max-width: 100%;
+}
+
+.form-contact .form-control:focus,
+.form-contact .form-control:active {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-color: rgb(233, 233, 233);
+}
+@media (max-width:768px) {
+  .form-contact .btn{
+    width: 25%;
+  }
+  
+}
+/* استایل نقشه */
+#map {
+  width: 100%;
+  /* عرض ۱۰۰ درصد برای نقشه */
+  height: 200px;
+  /* ارتفاع مشخص برای نقشه */
+  border-radius: 10px;
+  /* گوشه‌های گرد برای نقشه */
+  margin-top: 20px;
+  /* فاصله بالا برای نقشه */
+}
+
+/* --------- style of Login.php ------------- */
+
+/* استایل برای ظرف فرم */
+.div-form-login {
+  direction: rtl;
+  /* جهت نوشتار راست به چپ */
+  margin: 0;
+  /* حذف حاشیه‌ها */
+  display: flex;
+  /* استفاده از فلکس‌باکس */
+  justify-content: center;
+  /* مرکز کردن به صورت افقی */
+  align-items: center;
+  /* مرکز کردن به صورت عمودی */
+  height: 100vh;
+  /* ارتفاع کل صفحه */
+}
+
+/* استایل برای ظرف ورود */
+.login-container {
+  background-color: #fff;
+  /* رنگ پس‌زمینه سفید */
+  border-radius: 15px;
+  /* گرد کردن گوشه‌ها */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  /* سایه برای ظرف */
+  width: auto;
+  /* عرض خودکار */
+  max-width: 800px;
+  /* حداکثر عرض */
+  overflow: hidden;
+  /* مخفی کردن محتوای اضافی */
+  display: flex;
+  /* استفاده از فلکس‌باکس */
+  flex-direction: row;
+  /* جهت افقی فلکس‌باکس */
+  height: auto;
+  /* ارتفاع خودکار */
+}
+
+/* استایل برای هدر */
+.header-login {
+  display: flex;
+  /* استفاده از فلکس‌باکس */
+  justify-content: flex-start;
+  /* شروع از ابتدای ظرف */
+  align-items: center;
+  /* مرکز کردن به صورت عمودی */
+  padding: 15px 30px;
+  /* فضای داخلی */
+  background-color: transparent;
+  /* رنگ پس‌زمینه شفاف */
+  width: 100%;
+  /* عرض کامل */
+  margin-bottom: 20px;
+  /* فاصله پایین */
+}
+
+/* استایل برای لوگو */
+.logo {
+  max-width: 100px;
+  /* حداکثر عرض */
+}
+
+.header-login .logo {
+  max-height: 80px;
+  /* حداکثر ارتفاع */
+  margin-left: 20px;
+  /* فاصله از سمت چپ */
+}
+
+.header-login .logo img {
+  width: 90px;
+  /* تنظیم عرض لوگو */
+  height: auto;
+  /* حفظ نسبت ابعاد */
+}
+
+/* استایل برای لینک‌های ناوبری */
+.header-login .nav-links {
+  display: flex;
+  /* استفاده از فلکس‌باکس */
+  gap: 20px;
+  /* فاصله بین لینک‌ها */
+}
+
+.header-login .nav-links a {
+  text-decoration: none;
+  /* حذف خط زیرین */
+  color: #494F7A;
+  /* رنگ متن */
+  font-size: 16px;
+  /* اندازه فونت */
+  font-weight: 500;
+  /* وزن فونت متوسط */
+  margin-right: 10px;
+  /* فاصله از سمت راست */
+}
+
+.header-login .nav-links a:hover {
+  color: #00264D;
+  /* رنگ هنگام هاور */
+}
+
+/* استایل برای تصویر پَرچ */
+.img-parche {
+  width: 60%;
+  /* عرض ۶۰ درصد */
+  height: 100%;
+  /* ارتفاع کامل */
+  object-fit: cover;
+  /* پر کردن ظرف با حفظ نسبت */
+  border-radius: 15px 0 0 15px;
+  /* گرد کردن گوشه‌ها */
+}
+
+/* استایل برای ظرف فرم ورود */
+.login-form-container {
+  width: 70%;
+  /* عرض ۷۰ درصد */
+  display: flex;
+  /* استفاده از فلکس‌باکس */
+  flex-direction: column;
+  /* جهت عمودی فلکس‌باکس */
+  height: 100%;
+  /* ارتفاع کامل */
+}
+
+/* استایل برای فرم ورود */
+.login-form {
+  text-align: right;
+  /* تراز راست چین */
+  padding: 20px 30px;
+  /* فضای داخلی */
+  flex-grow: 1;
+  /* پر کردن فضای باقیمانده */
+}
+
+/* استایل برای اعلان‌ها */
+.alert {
+  max-width: 100%;
+  /* حداکثر عرض */
+  margin: 0 auto 15px auto;
+  /* حاشیه بالا و پایین خودکار */
+  padding: 10px 20px;
+  /* فضای داخلی */
+  border-radius: 10px;
+  /* گرد کردن گوشه‌ها */
+  text-align: center;
+  /* تراز وسط چین */
+}
+
+/* استایل برای کنترل‌های فرم */
+.login-form .form-control {
+  background-color: #F1F1F1;
+  /* رنگ پس‌زمینه */
+  border-radius: 25px;
+  /* گرد کردن گوشه‌ها */
+  margin-bottom: 30px;
+  /* فاصله پایین */
+  border: none;
+  /* حذف حاشیه‌ها */
+  width: 110%;
+  /* عرض ۱۱۰ درصد */
+  max-width: 300px;
+  /* حداکثر عرض */
+}
+
+.login-form .form-control:focus,
+.login-form .form-control:active {
+  outline: none;
+  /* حذف خطوط دور تمرکز */
+  box-shadow: none;
+  /* حذف سایه‌های جعبه */
+  background-color: #F1F1F1;
+  /* رنگ پس‌زمینه */
+}
+
+/* استایل برای دکمه‌های ثبت‌نام */
+.register-container .btn-primary {
+  width: 90px;
+  /* عرض دکمه */
+  border-radius: 25px;
+  /* گرد کردن گوشه‌ها */
+  background-color: var(--color-blue);
+  /* رنگ پس‌زمینه */
+  border: none;
+  /* حذف حاشیه‌ها */
+}
+
+.register-container .btn-primary:hover {
+  background-color: rgb(0, 49, 98);
+  /* رنگ هنگام هاور */
+}
+
+/* استایل برای ظرف ثبت‌نام */
+.register-container {
+  display: flex;
+  /* استفاده از فلکس‌باکس */
+  justify-content: flex-start;
+  /* شروع از ابتدای ظرف */
+  align-items: center;
+  /* مرکز کردن به صورت عمودی */
+  margin-top: 20px;
+  /* فاصله از بالا */
+}
+
+/* استایل برای لینک‌های ثبت‌نام */
+.register-link {
+  color: #494F7A;
+  /* رنگ متن */
+  text-decoration: none;
+  /* حذف خط زیرین */
+  margin-right: 10px;
+  /* فاصله از سمت راست */
+  font-size: 12px;
+  /* اندازه فونت */
+}
+
+.register-link:hover {
+  text-decoration: underline;
+  /* خط زیرین هنگام هاور */
+  color: black;
+  /* رنگ متن هنگام هاور */
+}
+
+.login-form {
+  margin-right: 10%;
+  /* فاصله از سمت راست */
+}
+
+/* استایل برای نمایشگرهای کوچک */
+@media (max-width: 736px) {
+  .login-container {
+    flex-direction: column;
+    /* جهت عمودی فلکس‌باکس */
+  }
+
+  .img-parche {
+    width: 100%;
+    /* عرض کامل */
+    height: 250px;
+    /* ارتفاع ثابت */
+    object-fit: cover;
+    /* پر کردن ظرف با حفظ نسبت */
+    border-radius: 0 0 15px 15px;
+    /* گرد کردن گوشه‌ها */
+  }
+
+  .login-form-container {
+    width: 100%;
+    /* عرض کامل */
+  }
+
+  .div-form-login {
+    margin-top: 120px;
+    /* فاصله از بالا */
+    margin-bottom: 120px;
+    /* فاصله از پایین */
+    margin-left: 10px;
+    /* فاصله از سمت چپ */
+    margin-right: 10px;
+    /* فاصله از سمت راست */
+    padding-right: 0;
+    /* حذف فضای داخلی از راست */
+  }
+
+  .login-form {
+    margin-right: 0;
+    /* حذف فاصله از سمت راست */
+  }
+
+  .header-login .logo img {
+    width: 70px;
+    /* تنظیم عرض لوگو */
+    height: auto;
+    /* حفظ نسبت ابعاد */
+  }
+
+  .header-login {
+    margin-bottom: 10px;
+    /* فاصله از پایین */
+  }
+
+  .login-form .form-control {
+    width: 100%;
+    /* عرض کامل */
+  }
+}
+
+/* --------- style of Register.php ------------- */
+
+/* استایل برای بدنه صفحه ثبت‌نام */
+.body-register {
+  direction: rtl; /* جهت نوشتار راست به چپ */
+  margin: 0; /* حذف حاشیه‌ها */
+}
+
+/* استایل برای ظرف فرم */
+.div-form-r {
+  display: flex; /* استفاده از فلکس‌باکس */
+  justify-content: center; /* مرکز کردن به صورت افقی */
+  align-items: center; /* مرکز کردن به صورت عمودی */
+  height: 100vh; /* ارتفاع کل صفحه */
+}
+
+/* استایل برای ظرف ورود */
+.div-form-r .login-container {
+  background-color: #fff; /* رنگ پس‌زمینه سفید */
+  border-radius: 15px; /* گرد کردن گوشه‌ها */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* سایه برای ظرف */
+  width: auto; /* عرض خودکار */
+  max-width: 800px; /* حداکثر عرض */
+  overflow: hidden; /* مخفی کردن محتوای اضافی */
+  display: flex; /* استفاده از فلکس‌باکس */
+  flex-direction: row; /* جهت افقی فلکس‌باکس */
+  height: auto; /* ارتفاع خودکار */
+}
+
+/* استایل برای هدر */
+.register-form-container .header {
+  display: flex; /* استفاده از فلکس‌باکس */
+  justify-content: flex-start; /* شروع از ابتدای ظرف */
+  align-items: center; /* مرکز کردن به صورت عمودی */
+  padding: 15px 30px; /* فضای داخلی */
+  background-color: transparent; /* رنگ پس‌زمینه شفاف */
+  width: 100%; /* عرض کامل */
+  margin-bottom: 10px; /* فاصله پایین */
+}
+
+/* استایل برای لوگو */
+.header .logo {
+  max-width: 100px; /* حداکثر عرض */
+}
+
+.header .logo {
+  max-height: 80px; /* حداکثر ارتفاع */
+  margin-left: 20px; /* فاصله از سمت چپ */
+}
+
+.header .logo img {
+  width: 90px; /* تنظیم عرض لوگو */
+  height: auto; /* حفظ نسبت ابعاد */
+}
+
+/* استایل برای لینک‌های ناوبری */
+.header .nav-links {
+  display: flex; /* استفاده از فلکس‌باکس */
+  gap: 25px; /* فاصله بین لینک‌ها */
+}
+
+.header .nav-links a {
+  text-decoration: none; /* حذف خط زیرین */
+  color: black; /* رنگ متن سیاه */
+  font-size: 16px; /* اندازه فونت */
+  font-weight: 500; /* وزن فونت متوسط */
+  margin-right: 10px; /* فاصله از سمت راست */
+}
+
+.header .nav-links a:hover {
+  color: var(--color-blue); /* رنگ هنگام هاور */
+}
+
+/* استایل برای اعلان‌ها */
+.alert-danger .alert-success {
+  max-width: 100%; /* حداکثر عرض */
+  margin: 10px auto; /* حاشیه بالا و پایین خودکار */
+  padding: 10px 20px; /* فضای داخلی */
+  border-radius: 10px; /* گرد کردن گوشه‌ها */
+  text-align: center; /* تراز وسط چین */
+  border: 1px solid transparent; /* حاشیه شفاف */
+}
+
+/* استایل برای تصویر پَرچ */
+.img-parcheh {
+  width: 60%; /* عرض ۶۰ درصد */
+  height: 100%; /* ارتفاع کامل */
+  object-fit: cover; /* پر کردن ظرف با حفظ نسبت */
+  border-radius: 15px 0 0 15px; /* گرد کردن گوشه‌ها */
+}
+
+/* استایل برای ظرف فرم ورود */
+.register-form-container {
+  width: 70%; /* عرض ۷۰ درصد */
+  display: flex; /* استفاده از فلکس‌باکس */
+  flex-direction: column; /* جهت عمودی فلکس‌باکس */
+  height: 100%; /* ارتفاع کامل */
+}
+
+/* استایل برای فرم ورود */
+.login-container .login-form {
+  text-align: right; /* تراز راست چین */
+  padding: 20px 30px; /* فضای داخلی */
+  flex-grow: 1; /* پر کردن فضای باقیمانده */
+}
+
+/* استایل برای کنترل‌های فرم */
+.form-control {
+  background-color: #F1F1F1; /* رنگ پس‌زمینه */
+  border-radius: 25px; /* گرد کردن گوشه‌ها */
+  margin-bottom: 15px; /* فاصله پایین */
+  border: none; /* حذف حاشیه‌ها */
+  width: 150%; /* عرض ۱۵۰ درصد */
+  max-width: 300px; /* حداکثر عرض */
+}
+
+.form-control:focus,
+.form-control:active {
+  outline: none; /* حذف خطوط دور تمرکز */
+  box-shadow: none; /* حذف سایه‌های جعبه */
+  background-color: #F1F1F1; /* رنگ پس‌زمینه */
+}
+
+/* استایل برای دکمه‌های ثبت‌نام */
+.register-container-register .btn {
+  width: 90px; /* عرض دکمه */
+  border-radius: 25px; /* گرد کردن گوشه‌ها */
+  background-color: var(--color-blue); /* رنگ پس‌زمینه */
+  border: none; /* حذف حاشیه‌ها */
+}
+
+.register-container-register .btn:hover {
+  background-color: rgb(0, 49, 98); /* رنگ هنگام هاور */
+}
+
+/* استایل برای ظرف ثبت‌نام */
+.register-container-register {
+  display: flex; /* استفاده از فلکس‌باکس */
+  justify-content: flex-start; /* شروع از ابتدای ظرف */
+  align-items: center; /* مرکز کردن به صورت عمودی */
+  margin-top: 20px; /* فاصله از بالا */
+}
+
+/* استایل برای لینک‌های ثبت‌نام */
+.register-link-register {
+  color: #494F7A; /* رنگ متن */
+  text-decoration: none; /* حذف خط زیرین */
+  margin-right: 10px; /* فاصله از سمت راست */
+  font-size: 13px; /* اندازه فونت */
+}
+
+.register-link-register:hover {
+  text-decoration: underline; /* خط زیرین هنگام هاور */
+  color: black; /* رنگ متن هنگام هاور */
+}
+
+.login-container .login-form {
+  margin-right: 10%; /* فاصله از سمت راست */
+}
+
+/* استایل برای نمایشگرهای کوچک */
+@media (max-width: 759px) {
+    .div-form-r .login-container {
+    flex-direction: column; /* جهت عمودی فلکس‌باکس */
+  }
+
+  .img-parcheh {
+    width: 100%; /* عرض کامل */
+    height: 250px; /* ارتفاع ثابت */
+    object-fit: cover; /* پر کردن ظرف با حفظ نسبت */
+    border-radius: 0 0 15px 15px; /* گرد کردن گوشه‌ها */
+  }
+
+  .register-form-container {
+    width: 100%; /* عرض کامل */
+  }
+
+  .body-register {
+    margin-top: 120px; /* فاصله از بالا */
+    margin-bottom: 120px; /* فاصله از پایین */
+    margin-left: 10px; /* فاصله از سمت چپ */
+    margin-right: 10px; /* فاصله از سمت راست */
+    padding-right: 0; /* حذف فضای داخلی از راست */
+  }
+  
+  .login-container .login-form {
+    margin-right: 0; /* حذف فاصله از سمت راست */
+  }
+  
+  .header .logo img {
+    width: 70px; /* تنظیم عرض لوگو */
+    height: auto; /* حفظ نسبت ابعاد */
+  }
+  
+  .register-form-container .header {
+    margin-bottom: 10px; /* فاصله از پایین */
+  }
+  
+  .form-control {
+    width: 100%; /* عرض کامل */
+  }
+  
+  .div-form-r .login-container {
+    width: auto; /* عرض خودکار */
+    max-width: 100%; /* حداکثر عرض */
+  }
+}
+
+
+
+
+
+
+.blog-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.blog-card img {
+  width: 100%;
+  height: auto;
+}
+.text-weblog {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  text-align: left; /* متن ها را چپ‌چین می‌کند */
+}
+.read-more-btn {
+  background-color: #ffc107;
+  border: none;
+  color: #000;
+  margin-top: 1rem;
+}
+@media (max-width: 1024px) {
+  .blog-card {
+      flex-direction: row;
+  }
+  .text-weblog {
+      text-align: left;
+      align-items: flex-start;
+  }
+}
+@media (max-width: 768px) {
+  .blog-card {
+      flex-direction: column;
+  }
+  .text-weblog {
+      text-align: left;
+      align-items: flex-start;
+  }
+}

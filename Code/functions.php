@@ -30,22 +30,6 @@ function enqueue_custom_scripts() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 
-// اعلام سازگاری قالب با WooCommerce
-function theme_support_woocommerce() {
-    if (class_exists('WooCommerce')) {
-        add_theme_support('woocommerce');
-    }
-}
-add_action('after_setup_theme', 'theme_support_woocommerce');
-
-add_action('init', function() {
-    if (class_exists('WooCommerce')) {
-        error_log('WooCommerce is active and working!');
-    } else {
-        error_log('WooCommerce is not active.');
-    }
-});
-
 
 function dibaj_theme_setup() {
     // ثبت مکان منو
@@ -81,16 +65,63 @@ class Custom_Nav_Walker extends Walker_Nav_Menu {
 }
 
 
+// function my_enqueue_custom_scripts() {
+//     // اضافه کردن jQuery از لینک خودتان
+//     wp_enqueue_script('jquery-cdn', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', array(), null, true);
+
+//     // اضافه کردن جاوا اسکریپت بوت‌استرپ از لینک خودتان
+//     wp_enqueue_script('bootstrap-js-cdn', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js', array('jquery-cdn'), null, true);
+// }
+// add_action('wp_enqueue_scripts', 'my_enqueue_custom_scripts');
+
+// function enqueue_bootstrap_styles() {
+//     // اضافه کردن CSS بوت‌استرپ از لینک خودتان
+//     wp_enqueue_style('bootstrap-css-cdn', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+// }
+// add_action('wp_enqueue_scripts', 'enqueue_bootstrap_styles');
+
+ function enqueue_custom_assets() {
+//     // اضافه کردن CSS بوت‌استرپ
+     wp_enqueue_style('bootstrap-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+
+//     // اضافه کردن CSS Font Awesome
+     wp_enqueue_style('font-awesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+//     // اضافه کردن CSS Leaflet
+    wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
+
+//     // اضافه کردن جاوا اسکریپت Leaflet
+    wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', array(), null, true);
+ }
+ add_action('wp_enqueue_scripts', 'enqueue_custom_assets');
 
 
 
-
-
-
-
-
-
+ 
 
 
 
 ?>
+
+<?php
+// <--برای اتصال صفحه لاگین به دیتابیس-->
+function custom_login_function() {
+    if(isset($_POST['login'])) {
+        $username = sanitize_text_field($_POST['username']);
+        $password = $_POST['password'];
+
+        $user = wp_authenticate($username, $password);
+
+        if(is_wp_error($user)) {
+            echo 'نام کاربری یا رمز عبور اشتباه است.';
+        } else {
+            wp_set_current_user($user->ID);
+            wp_set_auth_cookie($user->ID);
+            wp_redirect(home_url());
+            exit;
+        }
+    }
+}
+add_action('init', 'custom_login_function');
+?>
+

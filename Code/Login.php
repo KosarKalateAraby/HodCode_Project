@@ -1,45 +1,38 @@
 <?php
-    /* Template Name:  Register Page */
+    /* Template Name: Login Page */
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // دریافت داده‌های فرم
         $username = $_POST['username'];
-        $email = $_POST['email'];
         $password = $_POST['password'];
 
-        if (email_exists($email)) {
-            // اگر ایمیل قبلا ثبت شده باشد
-            $error_message = 'این ایمیل قبلاً ثبت شده است. لطفا از ایمیل دیگری استفاده کنید یا رمز عبور خود را بازیابی کنید.';
+        $creds = array(
+            'user_login'    => $username,
+            'user_password' => $password,
+            'remember'      => true
+        );
+
+        $user = wp_signon($creds, false);
+
+        if (is_wp_error($user)) {
+            $error_message = 'نام کاربری یا رمز عبور اشتباه است.';
         } else {
-            $userdata = array(
-                'user_login' => $username,
-                'user_email' => $email,
-                'user_pass'  => $password
-            );
-
-            $user_id = wp_insert_user($userdata);
-
-            if (is_wp_error($user_id)) {
-                $error_message = 'خطایی رخ داده است: ' . $user_id->get_error_message();
-            } else {
-                $success_message = 'ثبت نام با موفقیت انجام شد.';
-            }
+            $success_message = 'ورود با موفقیت انجام شد.';
         }
     }
 ?>
 
-    <div class="div-form-r">
+    <div class="div-form-login">
         <div class="login-container">
             <!-- Login form container -->
-            <div class="register-form-container">
+            <div class="login-form-container">
                 <!-- Header section -->
-                <div class="header">
+                <div class="header-login">
                     <div class="logo">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/logo.svg" alt="دیباج">
                     </div>
                     <div class="nav-links">
                         <a href="#">صفحه‌اصلی</a>
-                        <a href="#">ثبت‌نام</a>
+                        <a href="#">ورود</a>
                     </div>
                 </div>
 
@@ -65,21 +58,16 @@
                             <label for="password">رمز عبور:</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="لطفا رمز عبور خود را وارد کنید" required>
                         </div>
-                        <div class="form-group">
-                            <label for="password_confirm">تایید رمز عبور :</label>
-                            <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="لطفا دوباره رمز عبور خود را وارد کنید" required>
-                        </div>
-                        <div class="register-container-register">
-                            <button type="submit" class="btn btn-primary" name="login">ثبت نام</button>
-                            <a href="/Login.php" class="register-link-register">آیا حساب دارید؟ وارد شوید</a>
+                        <div class="register-container">
+                            <button type="submit" class="btn btn-primary" name="login">ورود</button>
+                            <a href="/Register.php" class="register-link">آیا حساب ندارید؟ همین الان ثبت نام کنید</a>
                         </div>
                     </form>
                 </div>
             </div>
             <!-- Image of fabric -->
             <div class="img-parche-container">
-                <img class="img-parcheh" src="<?php echo get_template_directory_uri(); ?>/assets/parcheh.jpg" alt="پارچه">
+                <img class="img-parche" src="<?php echo get_template_directory_uri(); ?>/assets/d.jpg" alt="پارچه">
             </div>
         </div>
     </div>
-
