@@ -45,8 +45,8 @@ $attachment_ids = $product->get_gallery_image_ids();
 <div class="container my-5">
     <div class="row">
         <!-- ---------------------قسمت نمایش تصاویر محصول --------------------->
-        <div class="col-md-6">
-            <div id="productGallery" class="carousel slide" data-bs-ride="false">
+        <div class="col-md-6 d-flex flex-column align-items-start">
+            <div id="productGallery" class="carousel slide" data-bs-ride="false" style="width: 85%; margin: auto;">
                 <div class="carousel-inner">
                     <?php
                     global $product;
@@ -57,7 +57,7 @@ $attachment_ids = $product->get_gallery_image_ids();
                     $main_image_url = wp_get_attachment_url($main_image);
                     ?>
                     <div class="carousel-item active">
-                        <img src="<?php echo esc_url($main_image_url); ?>" class="d-block w-100 zoomable" alt="Main Product Image" style="aspect-ratio: 1 / 1 !important; object-fit: cover;">
+                        <img src="<?php echo esc_url($main_image_url); ?>" class="d-block w-100 zoomable shadow" alt="Main Product Image" style="aspect-ratio: 1 / 1; object-fit: cover !important;">
                     </div>
                     <?php
                     $attachment_ids = $product->get_gallery_image_ids();
@@ -75,24 +75,22 @@ $attachment_ids = $product->get_gallery_image_ids();
                 </div>
 
                 <!-- ----------------------کنترل اسلایدر --------------------------->
-                <button class="carousel-control-prev position-absolute top-50 translate-middle-y" type="button" data-bs-target="#productGallery" data-bs-slide="prev" style="z-index: 10;">
+                <button class="carousel-control-prev btn" type="button" data-bs-target="#productGallery" data-bs-slide="prev" style="z-index: 10;">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next position-absolute top-50 translate-middle-y" type="button" data-bs-target="#productGallery" data-bs-slide="next" style="z-index: 10;">
+                <button class="carousel-control-next btn" type="button" data-bs-target="#productGallery" data-bs-slide="next" style="z-index: 10;">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
                 </button>
 
                 <!-- تصاویر کوچک پایین اسلایدر -->
                 <div class="carousel-thumbnails mt-3 d-flex justify-content-center">
-                    <img src="<?php echo esc_url($main_image_url); ?>" class="thumbnail-img mx-1 active" data-bs-target="#productGallery" data-bs-slide-to="0" style="cursor: pointer; width: 90px; height: 90px; object-fit: cover;">
+                    <img src="<?php echo esc_url($main_image_url); ?>" class="thumbnail-img mx-1 active border border-dark" data-bs-target="#productGallery" data-bs-slide-to="0" style="cursor: pointer; width: 80px; height: 80px; object-fit: cover; border-radius: 5px;">
                     <?php
                     if ($attachment_ids) {
                         foreach ($attachment_ids as $index => $attachment_id) {
                             $thumb_url = wp_get_attachment_url($attachment_id);
                             ?>
-                            <img src="<?php echo esc_url($thumb_url); ?>" class="thumbnail-img mx-1" data-bs-target="#productGallery" data-bs-slide-to="<?php echo $index + 1; ?>" style="cursor: pointer; width: 90px; height: 90px; object-fit: cover;">
+                            <img src="<?php echo esc_url($thumb_url); ?>" class="thumbnail-img mx-1 border" data-bs-target="#productGallery" data-bs-slide-to="<?php echo $index + 1; ?>" style="cursor: pointer; width: 80px; height: 80px; object-fit: cover; border-radius: 5px;">
                             <?php
                         }
                     }
