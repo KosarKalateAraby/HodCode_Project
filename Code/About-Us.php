@@ -9,22 +9,41 @@ get_header();
 ?>
 
 
-    <?php
-    $title = "درباره ما";
-    $description = "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...";
-    $innovations = "ما همیشه در جستجوی نوآوری‌های جدید هستیم تا تجربه خرید شما را جذاب‌تر و راحت‌تر کنیم.";
-    $fast_purchase = "با فرآیند ساده و کاربرپسند خرید، تمام نیازهای شما تنها با چند کلیک برآورده می‌شوند.";
-    $quality_assurance = "هر محصول ما تحت استانداردهای سختگیرانه‌ای آزمایش می‌شود تا فقط بهترین‌ها را به دست شما برسانیم.";
-    ?>
+<?php
+// دریافت پست "درباره ما" از پست‌های معمولی
+$args = array(
+    'post_type'      => 'post',    // نوع پست: نوشته‌های معمولی
+    'title'          => 'درباره ما',  // عنوان پست
+    'posts_per_page' => 1,         // دریافت فقط یک پست
+);
+
+$about_query = new WP_Query($args);
+
+// بررسی اینکه آیا پست "درباره ما" پیدا شده است
+if ($about_query->have_posts()) {
+    while ($about_query->have_posts()) {
+        $about_query->the_post(); 
+        $title = get_the_title();
+        $description = apply_filters('the_content', get_the_content());
+    }
+} else {
+    $title = "پست درباره ما پیدا نشد!";
+    $description = "محتوای این پست هنوز تنظیم نشده است.";
+}
+
+// ریست کردن کوئری
+wp_reset_postdata();
+?>
+
 
 <div class="container">
     <div class="row mt-5 d-flex">
         <div class="col-md-4 order-md-2">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/image/img-about.jpg" alt="Fabric" class="img-fluid">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/image/img-about.jpg" alt="Fabric" class="img-fluid mb-4">
         </div>
         <div class="col-md-8 order-md-1">
-            <h1 class="title-about"><?php echo $title; ?></h1>
-            <p class="paragraph"><?php echo $description; ?></p>
+            <h2 class="title-about text-center"><?php echo $title; ?></h2>
+            <p class="paragraph text-justify"><?php echo $description; ?></p>
         </div>
     </div>
     <div class="row mt-5">
@@ -73,8 +92,6 @@ get_header();
         </div>
     </div>
 </div>
-
-
 
 <?php
 // فراخوانی فوتر قالب
