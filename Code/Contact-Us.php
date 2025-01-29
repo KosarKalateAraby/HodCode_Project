@@ -12,21 +12,21 @@ get_header();
         <div class="row">
             <div class="col-lg-6 order-lg-2 order-2">
                 <div class="contact-form">
-                    <form action="contact.php" method="post" class="form-contact">
+                    <form action="<?php home_url() ?>" method="post" class="form-contact">
                         <div class="form-group">
                             <h3>ارسال پیام</h3>
                             <label for="name">نام</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="نام" required>
+                            <input type="text" class="form-control mb-3" id="name" name="name" placeholder="نام" required>
                         </div>
                         <div class="form-group">
                             <label for="email">ایمیل</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="ایمیل" required>
+                            <input type="email" class="form-control mb-3" id="email" name="email" placeholder="ایمیل" required>
                         </div>
                         <div class="form-group">
                             <label for="message">متن پیام...</label>
-                            <textarea class="form-control" id="message" name="message" rows="4" placeholder="متن پیام..." required></textarea>
+                            <textarea class="form-control mb-3" id="message" name="message" rows="4" placeholder="متن پیام..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">ارسال</button>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">ارسال</button>
                     </form>
                 </div>
             </div>
