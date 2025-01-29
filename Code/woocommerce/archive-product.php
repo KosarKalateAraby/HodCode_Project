@@ -97,7 +97,7 @@ do_action( 'woocommerce_shop_loop_header' );
                         
                         <div class="card-body d-flex flex-column">
                             <!-- نام محصول و قیمت -->
-                            <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="product-info d-flex justify-content-between align-items-center mb-3">
                                 <h3 class="card-title fw-bold mb-0 fs-5"><?php the_title(); ?></h3>
                                 <p class="card-text mb-0  fs-6">
                                     <?php echo $product->get_price_html(); ?>
