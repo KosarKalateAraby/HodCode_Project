@@ -10,7 +10,7 @@
                         <img src="<?php the_post_thumbnail_url('full'); ?>" class="card-img-top" alt="<?php the_title(); ?>">
                     <?php endif; ?>
                     <div class="card-body">
-                        <h1 class="card-title text-primary"><?php the_title(); ?></h1>
+                        <h1 class="card-blog-title fw-bold text-center"><?php the_title(); ?></h1>
                         <div class="d-flex justify-content-between text-muted mb-3">
                             <span>تاریخ: <?php echo get_the_date('j F Y');; ?></span>
                             <span>نویسنده: <?php the_author(); ?></span>
@@ -58,6 +58,5 @@
         </div>
     </div>
 </div>
-
 
 <?php get_footer(); ?>

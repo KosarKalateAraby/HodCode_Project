@@ -546,13 +546,83 @@ body {
 
 .product-card:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
+
+.square-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.index-card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.index-product-name {
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 10px;
+}
+
+.index-product-price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-mustard);
+  margin-top: 10px;
+}
+
+/* تنظیمات ریسپانسیو */
+@media (max-width: 768px) {
+  .product-card {
+    padding: 1rem;
+    border: 1px solid #ddd;
+  }
+  .square-image {
+    border-radius: 6px;
+  }
+  .card-body {
+    flex-direction: row; /* نمایش در یک خط */
+  }
+  .index-product-name,
+  .index-product-price {
+    font-size: 0.875rem; /* کوچک‌تر کردن اندازه متن */
+  }
+}
+
+@media (max-width: 576px) {
+  .product-card {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+  }
+  .square-image {
+    border-radius: 4px;
+  }
+  .index-product-name,
+  .index-product-price {
+    font-size: 0.75rem; /* متن حتی کوچک‌تر برای موبایل */
+  }
+  .card-body {
+    flex-wrap: nowrap; /* اطمینان از نمایش در یک خط */
+  }
+}
+
 
 /* ------section article--------- */
 /* کارت وبلاگ */
 .blog-card {
-  height: 200px;
-  /* ارتفاع ثابت */
+  width: 100%; /* عرض تصویر 100 درصد ستون باشد */
+  height: 100%; /* ارتفاع تصویر تمام کارت باشد */
+  object-fit: cover; /* حفظ تناسب تصویر بدون کشیدگی */
   box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.25);
   /* سایه داخلی */
   border-radius: 20px;
@@ -570,9 +640,10 @@ body {
   flex: 1;
   background-size: cover;
   /* حالت کاور برای تصویر */
-  background-position: center;
+  /* background-position: center; */
   /* مرکز تصویر */
   background-repeat: no-repeat;
+  object-fit: cover;
 }
 
 /* متن و دکمه */
@@ -583,6 +654,11 @@ body {
 .blog-title {
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+.des-blog{
+  color: black;
+  margin-bottom: 15px !important;
 }
 
 .read-more-btn {
@@ -624,8 +700,9 @@ body {
     /* کاهش اندازه عنوان */
   }
 
-  .text-muted {
-    font-size: 0.8rem;
+  .date-blog ,
+  .des-blog {
+    font-size: 0.7rem;
   }
 
   .read-more-btn {
@@ -644,7 +721,7 @@ body {
   }
 
   .blog-card .image-container {
-    height: 120px;
+    height: 130px;
     /* ارتفاع محدودتر */
   }
 
@@ -653,8 +730,9 @@ body {
     /* عنوان کوچک‌تر */
   }
 
-  .text-muted {
-    font-size: 0.6rem;
+  .date-blog ,
+  .des-blog {
+    font-size: 0.5rem;
   }
 
   .read-more-btn {
@@ -785,7 +863,7 @@ body {
 }
 
 .card-title {
-  font-size: 1rem;
+  font-size: 0.9rem !important;
   /* سایز کوچک‌تر برای عنوان */
 }
 
@@ -852,6 +930,27 @@ body {
   margin: 5px;
 }
 
+/* حل مشکل نمایش اسم محصول و قیمت آن در یک ردیف و ریسپانسیو */
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 2.5rem; /* ارتفاع ثابت برای تراز کردن نام و قیمت */
+}
+
+.product-info h3 {
+  flex: 1; /* نام محصول فضای بیشتری بگیرد */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.product-info p {
+  white-space: nowrap;
+  margin: 0;
+}
+
 /* --------- style of footer.php ------------- */
 .bg-custom-dark {
   background-color: var(--color-blue);
@@ -885,17 +984,24 @@ footer a {
   /* رنگ لینک */
 }
 
+/* رفع مشکل نمایش فوتر در صفحه نمایش یک محصول */
+footer{
+  clear: both; /* اگر المان‌های شناور مشکل‌ساز هستند */
+  position: relative; /* رفع تداخل موقعیت */
+  z-index: 1; /* اگر المان‌های دیگر روی فوتر قرار گرفته‌اند */
+}
+
 footer a:hover {
   text-decoration: underline;
   /* زیرخط برای hover */
 }
 
 .d-flex.align-items-center {
-  display: flex;
+  display: flex !important;
   /* تراز کردن در یک خط */
   justify-content: space-between;
   /* فاصله میان شماره تماس و آیکون‌ها */
-  align-items: center;
+  align-items: center !important;
   /* تراز عمودی */
 }
 
@@ -919,6 +1025,53 @@ footer a:hover {
       margin-bottom: 50px;
   } */
 }
+/* تنظیم موقعیت لوگوی eNAMAD و آیکون‌ها */
+.col-md-5.d-flex {
+  justify-content: flex-end; /* ترازبندی به سمت راست */
+  align-items: center; /* تراز عمودی */
+  gap: 20px; /* فاصله میان آیکون‌ها و لوگو */
+}
+
+.social-icons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px; /* فاصله بین آیکون‌ها */
+}
+
+.social-icons a {
+  color: #fff;
+  transition: color 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.social-icons a:hover {
+  color: var(--color-light-blue);
+}
+
+/* تنظیمات ریسپانسیو */
+@media (max-width: 768px) {
+  .col-md-5.d-flex {
+      flex-direction: column-reverse; /* قرارگیری آیکون‌ها زیر لوگو در موبایل */
+      align-items: flex-end; /* تراز به سمت راست در موبایل */
+  }
+
+  .social-icons {
+      margin-bottom: 10px;
+  }
+}
+
+/* تنظیمات اطلاعات تماس */
+.contact-info {
+  display: flex;
+  flex-direction: column; /* آیتم‌ها زیر هم قرار می‌گیرند */
+  align-items: flex-start; /* ترازبندی به چپ برای متون */
+}
+
+.contact-info p {
+  margin-bottom: 0.5rem; /* فاصله مناسب بین پاراگراف‌ها */
+  text-align: right; /* متن راست‌چین برای زبان فارسی */
+}
+
 
 /* -----------style of blog-page.php -------*/
 .section-title {
@@ -1030,6 +1183,10 @@ h4.text-primary {
   background-color: #f8f9fa;
 }
 
+.card-blog-title{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 /* --------- style of About-Us.php ------------- */
 
 /* استایل برای بدنه صفحه درباره ما */
@@ -1357,7 +1514,6 @@ h4.text-primary {
   /* رنگ پس‌زمینه شفاف */
   width: 100%;
   /* عرض کامل */
-  margin-bottom: 20px;
   /* فاصله پایین */
 }
 
@@ -1392,7 +1548,7 @@ h4.text-primary {
 .header-login .nav-links a {
   text-decoration: none;
   /* حذف خط زیرین */
-  color: #494F7A;
+  color: #000;
   /* رنگ متن */
   font-size: 16px;
   /* اندازه فونت */
@@ -1403,20 +1559,17 @@ h4.text-primary {
 }
 
 .header-login .nav-links a:hover {
-  color: #00264D;
+  color: var(--color-blue);
   /* رنگ هنگام هاور */
 }
 
 /* استایل برای تصویر پَرچ */
 .img-parche {
-  width: 60%;
-  /* عرض ۶۰ درصد */
-  height: 100%;
-  /* ارتفاع کامل */
-  object-fit: cover;
-  /* پر کردن ظرف با حفظ نسبت */
-  border-radius: 15px 0 0 15px;
-  /* گرد کردن گوشه‌ها */
+  width: 88%; /* عرض تصویر */
+  height: auto; /* تنظیم ارتفاع به‌صورت خودکار با توجه به عرض */
+  max-height: 100%; /* جلوگیری از خروج تصویر از ظرف */
+  object-fit: cover; /* برش تصویر برای پر کردن ظرف */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); سایه‌ی ملایم */
 }
 
 /* استایل برای ظرف فرم ورود */
@@ -1491,6 +1644,7 @@ h4.text-primary {
   /* رنگ پس‌زمینه */
   border: none;
   /* حذف حاشیه‌ها */
+  margin-top: 10px;
 }
 
 .register-container .btn-primary:hover {
@@ -1520,6 +1674,7 @@ h4.text-primary {
   /* فاصله از سمت راست */
   font-size: 12px;
   /* اندازه فونت */
+  margin-top: 10px;
 }
 
 .register-link:hover {
@@ -1558,10 +1713,6 @@ h4.text-primary {
   }
 
   .div-form-login {
-    margin-top: 120px;
-    /* فاصله از بالا */
-    margin-bottom: 120px;
-    /* فاصله از پایین */
     margin-left: 10px;
     /* فاصله از سمت چپ */
     margin-right: 10px;
@@ -1630,7 +1781,7 @@ h4.text-primary {
   padding: 15px 30px; /* فضای داخلی */
   background-color: transparent; /* رنگ پس‌زمینه شفاف */
   width: 100%; /* عرض کامل */
-  margin-bottom: 10px; /* فاصله پایین */
+  /* margin-bottom: 10px; فاصله پایین */
 }
 
 /* استایل برای لوگو */
@@ -1676,13 +1827,21 @@ h4.text-primary {
   border: 1px solid transparent; /* حاشیه شفاف */
 }
 
+.img-parche-container {
+  display: flex;
+  justify-content: flex-end; /* انتقال عکس به سمت راست */
+  align-items: center; /* تنظیم عمودی */
+  height: 100%; /* پر کردن ارتفاع */
+}
 /* استایل برای تصویر پَرچ */
 .img-parcheh {
-  width: 60%; /* عرض ۶۰ درصد */
-  height: 100%; /* ارتفاع کامل */
-  object-fit: cover; /* پر کردن ظرف با حفظ نسبت */
-  border-radius: 15px 0 0 15px; /* گرد کردن گوشه‌ها */
+  width: 84%; /* عرض تصویر */
+  height: auto; /* تنظیم ارتفاع به‌صورت خودکار با توجه به عرض */
+  max-height: 100%; /* جلوگیری از خروج تصویر از ظرف */
+  object-fit: cover; /* برش تصویر برای پر کردن ظرف */
+  rotate: 180deg;
 }
+
 
 /* استایل برای ظرف فرم ورود */
 .register-form-container {
@@ -1700,7 +1859,7 @@ h4.text-primary {
 }
 
 /* استایل برای کنترل‌های فرم */
-.form-control {
+.form-control2 {
   background-color: #F1F1F1; /* رنگ پس‌زمینه */
   border-radius: 25px; /* گرد کردن گوشه‌ها */
   margin-bottom: 15px; /* فاصله پایین */
@@ -1709,8 +1868,8 @@ h4.text-primary {
   max-width: 300px; /* حداکثر عرض */
 }
 
-.form-control:focus,
-.form-control:active {
+.form-control2:focus,
+.form-control2:active {
   outline: none; /* حذف خطوط دور تمرکز */
   box-shadow: none; /* حذف سایه‌های جعبه */
   background-color: #F1F1F1; /* رنگ پس‌زمینه */
@@ -1722,6 +1881,8 @@ h4.text-primary {
   border-radius: 25px; /* گرد کردن گوشه‌ها */
   background-color: var(--color-blue); /* رنگ پس‌زمینه */
   border: none; /* حذف حاشیه‌ها */
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .register-container-register .btn:hover {
@@ -1742,6 +1903,8 @@ h4.text-primary {
   text-decoration: none; /* حذف خط زیرین */
   margin-right: 10px; /* فاصله از سمت راست */
   font-size: 13px; /* اندازه فونت */
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .register-link-register:hover {
@@ -1800,6 +1963,102 @@ h4.text-primary {
     max-width: 100%; /* حداکثر عرض */
   }
 }
+/* تار کردن پس‌زمینه */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none; /* پنهان پیش‌فرض */
+  justify-content: center;
+  align-items: center;
+}
+/* استایل پیام */
+.message-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+.message-box p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.message-box button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: var(--color-blue);
+  color: white;
+}
+/* --------- style of index.php ------------- */
+/* .blog-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  height: auto;
+} */
+/* .blog-card img {
+  flex: 0 0 250px;
+  width: 150px;
+  height: 150px; اندازه فیکس شده */
+  /* object-fit: cover;
+} */
+/* .text-weblog {
+  flex: 1;
+  text-align: right;
+  padding-left: 15px;
+}
+.read-more-btn {
+  background-color: #ffd700;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-decoration: none; */
+/* }
+@media (max-width: 770px) {
+  .blog-card {
+    flex-direction: row; */
+    /* align-items: center; /* حفظ حالت افقی */
+    /* height: auto; /* تنظیم ارتفاع خودکار */
+  /* }
+  .blog-card img {
+    flex: 0 0 150px; */
+    /* width: 100px; /* تغییر اندازه برای نمایش بهتر */
+    /* height: 100px; /* تغییر اندازه برای نمایش بهتر */
+  /* }
+  .text-weblog {
+    padding-left: 10px;
+  }
+  .read-more-btn {
+    margin-left: 10px;
+  }
+}
+@media (max-width: 425px) {
+  .blog-card img {
+    flex: 0 0 100px;
+   }
+}
+
+@media (max-width: 375px) {
+  .blog-card img {
+    flex: 0 0 70px;
+    width: 90px;
+   }
+} */
 
 /* --------------style of single-product.php--------------------- */
 
@@ -1935,3 +2194,33 @@ h4.text-primary {
   display: none;
 }
 
+/* ----------------------style of cart-sample.php---------------------- */
+@media (max-width: 576px) {
+  .shop_table th,
+  .shop_table td {
+      font-size: 12px;
+      padding: 8px;
+  }
+
+  .shop_table .product-thumbnail img {
+      width: 50px;
+      height: 50px;
+  }
+}
+
+.product-thumbnail img {
+  width: 100%;
+  max-width: 80px;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: 576px) {
+  .product-thumbnail img {
+      max-width: 60px; /* اندازه کوچکتر در موبایل */
+  }
+
+  .shop_table th, .shop_table td {
+      font-size: 14px; /* اندازه فونت جدول کوچک‌تر شود */
+  }
+}

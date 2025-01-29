@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
         <?php
         // لیستی از اسلایدها (می‌توانید از دیتابیس نیز مقدار بگیرید)
         $slides = [
-            ['url' => get_template_directory_uri() . '/assets/image/slide4.png', 'alt' => 'اسلاید ۱'],
+            ['url' => get_template_directory_uri() . '/assets/image/slide1.jpg', 'alt' => 'اسلاید ۱'],
             ['url' => get_template_directory_uri() . '/assets/image/slide2.jpg', 'alt' => 'اسلاید ۲'],
             ['url' => get_template_directory_uri() . '/assets/image/slide3.jpg', 'alt' => 'اسلاید ۳'],
         ];
@@ -29,7 +29,7 @@ if (!defined('ABSPATH')) {
         foreach ($slides as $index => $slide) {
             $active = ($index === 0) ? 'active' : '';
             echo '<div class="carousel-item ' . $active . '">
-                    <img src="' . esc_url($slide['url']) . '" class="d-block w-100" alt="' . esc_attr($slide['alt']) . '">
+                    <img src="' . esc_url($slide['url']) . '" class="slider-img d-block w-100" alt="' . esc_attr($slide['alt']) . '">
                 </div>';
         }
         ?>
@@ -45,4 +45,3 @@ if (!defined('ABSPATH')) {
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-
