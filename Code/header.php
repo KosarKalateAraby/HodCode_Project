@@ -9,7 +9,7 @@
 <body <?php body_class(); ?>>
     <header>
         <nav class="navbar navbar-expand-lg bg-light shadow-sm">
-            <div class="container">
+            <div class="container d-flex justify-content-between align-items-center">
                 <!-- لوگو -->
                 <a class="navbar-brand ms-3" href="<?= home_url(); ?>">
                     <img src="<?= get_template_directory_uri() ?>/assets/image/logo.svg" alt="<?php bloginfo('name'); ?>" class="logo">
@@ -33,14 +33,24 @@
                         'walker' => new Custom_Nav_Walker(), // اتصال Walker Class
                     ));
                     ?>
+
                     <!-- آیکون‌های هدر -->
                     <div class="header-icons d-none d-lg-flex">
-                        <a href="#"><i class="bi bi-search" alt="سرچ"></i></a>
-                        <a href="#"><i class="bi bi-heart" alt="مورد علاقه‌ها"></i></a>
-                        <a href="#"><i class="bi bi-cart" alt="سبد خرید"></i></a>
-                        <a href="#"><i class="bi bi-person" alt="حساب کاربری"></i></a>
+                        <!-- جستجو (می‌توانید به صفحه جستجوی سایت لینک دهید) -->
+                        <a href="<?php echo site_url('/?s='); ?>"><i class="bi bi-search" alt="سرچ"></i></a>
+
+                        <!-- سبد خرید -->
+                        <a href="<?php echo wc_get_cart_url(); ?>">
+                            <i class="bi bi-cart" alt="سبد خرید"></i>
+                        </a>
 
                         <!-- حساب کاربری -->
+                        <a href="<?php echo site_url('/register/'); ?>">
+                            <i class="bi bi-person" alt="حساب کاربری"></i>
+                        </a>
+                    </div>
+
+                        <!-- حساب کاربری
                         <div class="account-icon position-relative">
                             <div class="account-dropdown">
                                 <a href="#">
@@ -50,7 +60,7 @@
                                     <i class="bi bi-person-plus"></i> ثبت‌نام
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -63,9 +73,8 @@
     $footerItems = [
         ['icon' => 'fa-home', 'label' => 'خانه', 'url' => home_url('/')],
         ['icon' => 'fa-shopping-cart', 'label' => 'سبد خرید', 'url' => site_url('/cart')],
-        ['icon' => 'fa-box-open', 'label' => 'محصولات', 'url' => site_url('/?page_id=86')],
-        ['icon' => 'fa-search', 'label' => 'جست‌وجو', 'url' => site_url('/search')],
-        ['icon' => 'fa-user', 'label' => 'حساب کاربری', 'url' => site_url('/profile')],
+        ['icon' => 'fa-box-open', 'label' => 'محصولات', 'url' => site_url('/shop')],
+        ['icon' => 'fa-user', 'label' => 'حساب کاربری', 'url' => site_url('/register/')]
     ];
     ?>
 
@@ -89,9 +98,7 @@
 
 
 
-    <!-- Bootstrap JS -->
-    <script src="/assets/css/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= get_template_directory_uri() ?>/custom.js"></script>
+    
     <?php wp_footer(); ?>
 </body>
 </html>
