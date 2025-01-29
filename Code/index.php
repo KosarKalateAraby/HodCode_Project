@@ -1,4 +1,5 @@
 <?php
+
 // فراخوانی هدر قالب
 get_header();
 ?>
@@ -14,11 +15,13 @@ get_template_part('slider');
         <?php
         // آرایه‌ای برای کارت‌ها
         $cards = [
-            ['title' => 'محصولات پاییزی', 'color' => 'bg-primary', 'link' => '#'],
-            ['title' => 'محصولات بهاری', 'color' => 'bg-warning', 'link' => '#'],
-            ['title' => 'محصولات زمستانی', 'color' => 'bg-primary', 'link' => '#'],
-            ['title' => 'محصولات تابستانی', 'color' => 'bg-warning', 'link' => '#']
+            ['title' => 'محصولات پاییزی', 'color' => 'bg-primary', 'link' => site_url('/shop')],
+            ['title' => 'محصولات بهاری', 'color' => 'bg-warning', 'link' => site_url('/shop')],
+            ['title' => 'محصولات زمستانی', 'color' => 'bg-primary', 'link' => site_url('/shop')],
+            ['title' => 'محصولات تابستانی', 'color' => 'bg-warning', 'link' => site_url('/shop')]
         ];
+        
+
 
         // نمایش کارت‌ها
         foreach ($cards as $card) {
@@ -39,9 +42,8 @@ get_template_part('slider');
 
 <!-- نمایش محصولات ویژه -->
 
-
 <div class="container">
-    <h2 class="text-center mb-4">محصولات ویژه!</h2>
+    <h2 class="text-center mb-4 fw-bold">محصولات ویژه!</h2>
     <div class="row g-4">
         <?php
         $args = [
@@ -62,20 +64,20 @@ get_template_part('slider');
                 global $product;
                 ?>
                 <div class="col-6 col-md-4 col-lg-3">
-                    <div class="product-card shadow-sm">
+                    <div class="product-card shadow-sm border p-2">
                         <!-- تصویر محصول -->
                         <a href="<?php the_permalink(); ?>" class="d-block">
-                            <?php echo $product->get_image('woocommerce_thumbnail', ['class' => 'card-img-top', 'style' => 'aspect-ratio: 1/1; object-fit: cover;']); ?>
+                            <?php echo $product->get_image('woocommerce_thumbnail', ['class' => 'card-img-top square-image']); ?>
                         </a>
-                        <div class="card-body d-flex justify-content-between align-items-center">
+                        <div class="index-card-body d-flex justify-content-between align-items-center">
                             <!-- نام محصول -->
-                            <span class="product-name text-dark">
+                            <span class="index-product-name text-dark">
                                 <a href="<?php the_permalink(); ?>" class="text-decoration-none text-dark">
                                     <?php the_title(); ?>
                                 </a>
                             </span>
                             <!-- قیمت محصول -->
-                            <span class="product-price text-warning">
+                            <span class="index-product-price">
                                 <?php echo $product->get_price_html(); ?>
                             </span>
                         </div>
@@ -92,16 +94,15 @@ get_template_part('slider');
 </div>
 
 
-
-
 <!-- قسمت وبلاگ ها -->
 
 <div class="container my-5">
-<h2 class="section-title text-center">در وبلاگ می‌خوانید...</h2>
-    <div class="row g-3">
+<h2 class="section-title1 text-center fw-bold mb-4">در وبلاگ می‌خوانید...</h2>
+        <div class="row g-3">
             <?php
             // ایجاد کوئری برای دریافت آخرین مطالب
             $latest_posts = new WP_Query([
+                'category_name' => 'blogs', // فقط پست‌هایی که در دسته‌ی blog هستند
                 'post_type' => 'post', // نوع پست (مطالب)
                 'posts_per_page' => 5, // تعداد پست‌ها
             ]);
@@ -126,12 +127,13 @@ get_template_part('slider');
                             <div class="text-weblog col-9 d-flex justify-content-between align-items-center p-3">
                                 <div>
                                     <h5 class="blog-title mb-2"><?php the_title(); ?></h5>
-                                    <p class="text-muted mb-1">
+                                    <p class="date-blog mb-1">
                                         <?php echo get_the_date('j F Y'); ?> | نوشته‌شده توسط <?php the_author(); ?>
                                     </p>
-                                    <p class="text-muted mb-1">
-                                        <?php the_excerpt(); ?>
+                                    <p class="des-blog mb-1 ">
+                                        <?php echo wp_trim_words(get_the_content(), 20, '...'); ?>
                                     </p>
+
                                 </div>
                                 <a href="<?php the_permalink(); ?>" class="read-more-btn">اینجا بخوانید</a>
                             </div>
@@ -142,9 +144,8 @@ get_template_part('slider');
             else: ?>
                 <p>هیچ مطلبی یافت نشد.</p>
             <?php endif; ?>
-    </div>
+        </div>
 </div>
-
 
 <?php
 // فراخوانی فوتر قالب
