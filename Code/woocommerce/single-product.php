@@ -158,10 +158,17 @@ $attachment_ids = $product->get_gallery_image_ids();
             </div>
 
             <!-- ورودی‌های محاسبه قیمت -->
-            <div class="mb-3">
-                <input type="number" class="form-control mb-2" id="inputMeters" placeholder="متر" min="0">
-                <input type="number" class="form-control" id="inputCentimeters" placeholder="سانتی‌متر" min="0" max="99">
-            </div>
+            <form method="post" enctype="multipart/form-data">
+                <!-- ورودی‌های متر و سانتی‌متر -->
+                <div class="mb-3">
+                    <label for="inputMeters" class="form-label">متر:</label>
+                    <input type="number" name="product_meters" class="form-control" id="inputMeters" placeholder="مقدار به متر" min="0" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputCentimeters" class="form-label">سانتی‌متر:</label>
+                    <input type="number" name="product_centimeters" class="form-control" id="inputCentimeters" placeholder="مقدار به سانتی‌متر" min="0" max="99" required>
+                </div>
+            </form>
             <div class="mb-3">
                 <label for="totalPrice" class="form-label">قیمت کل (به تومان):</label>
                 <input type="text" class="form-control" id="totalPrice" readonly>
@@ -171,11 +178,11 @@ $attachment_ids = $product->get_gallery_image_ids();
             <ul class="product-meta mt-4">
                 <li><strong>کد محصول:</strong> <?php echo $product->get_sku(); ?></li>
                 <li><strong>دسته بندی:</strong> <?php echo wc_get_product_category_list($product->get_id()); ?></li>
-                <li><strong>Tags:</strong> <?php echo wc_get_product_tag_list($product->get_id()); ?></li>
+                <li><strong>تگ:</strong> <?php echo wc_get_product_tag_list($product->get_id()); ?></li>
             </ul>
 
             <!-- فرم افزودن به سبد خرید -->
-            <div class="add-to-cart mt-4">
+         <div class="add-to-cart mt-4">
                 <form method="post" enctype="multipart/form-data">
                     <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="btn btn-primary d-flex align-items-center justify-content-center gap-2">
                         افزودن به سبد خرید
@@ -247,8 +254,8 @@ remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_pr
                             <!-- استفاده از get_the_post_thumbnail_url برای فراخوانی تصویر محصول -->
                             <img src="<?php echo esc_url(get_the_post_thumbnail_url($related_product->get_id(), 'full')); ?>" class="card-img-top" alt="<?php echo esc_attr($related_product->get_name()); ?>" style="aspect-ratio: 1 / 1; object-fit: cover;">
                             <div class="card-body text-center">
-                                <h5 class="card-title" style="font-size: 18px; color: black;"><?php echo esc_html($related_product->get_name()); ?></h5>
-                                <p class="card-text" style="font-size: 16px; color: black;"><?php echo wc_price($related_product->get_price()); ?></p>
+                                <h5 class="card-title" style="font-size: 18px !important; color: black;"><?php echo esc_html($related_product->get_name()); ?></h5>
+                                <p class="card-text text-center" style="font-size: 16px; color: black;"><?php echo wc_price($related_product->get_price()); ?></p>
                                 
                                 <!-- فرم افزودن به سبد خرید -->
                                 <form action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
@@ -434,7 +441,7 @@ function lightenOrDarken(hex, percent) {
         inputCentimeters.addEventListener("input", calculateTotal);
     });
 </script>
-
+    
 	<?php
 		/**
 		 * woocommerce_before_main_content hook.
@@ -451,7 +458,7 @@ function lightenOrDarken(hex, percent) {
 			<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
 		<?php endwhile; // end of the loop. ?>
-
+            
 	<?php
 		/**
 		 * woocommerce_after_main_content hook.
@@ -460,7 +467,7 @@ function lightenOrDarken(hex, percent) {
 		 */
 		do_action( 'woocommerce_after_main_content' );
 	?>
-
+    
 	<?php
 		/**
 		 * woocommerce_sidebar hook.
@@ -469,9 +476,8 @@ function lightenOrDarken(hex, percent) {
 		 */
 		do_action( 'woocommerce_sidebar' );
 	?>
-
-<?php
-get_footer( 'shop' );
-
-/* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
-?>
+    
+    <?php
+    // فراخوانی فوتر قالب
+    get_footer();
+    ?>
